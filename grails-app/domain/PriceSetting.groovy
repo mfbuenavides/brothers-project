@@ -7,7 +7,7 @@ class PriceSetting {
     static constraints = {
     	pricePerInitialTenKg nullable: false, blank: false
     	priceSuccceedingKg nullable: false, balnk: false
-    	effectivityDate nullable: false 
+    	effectivityDate nullable: true 
     }
 
     static mapping = {
@@ -22,5 +22,9 @@ class PriceSetting {
     	if (priceSettings) {
     		return priceSettings[0]
     	} else null
+    }
+
+    def beforeInsert() {
+        effectivityDate = new Date()
     }
 }
