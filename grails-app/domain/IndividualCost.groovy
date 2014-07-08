@@ -1,0 +1,5 @@
+class IndividualCost {
+
+    static constraints = {
+    }
+}
