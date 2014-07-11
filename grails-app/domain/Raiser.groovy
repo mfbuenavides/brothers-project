@@ -13,6 +13,6 @@ class Raiser {
     static mapping = {
     	firstName column: 'first_name'
     	lastName column: 'last_name'
-    	batchNumber column: 'batch_number'
+    	batchNumber column: 'batch_no'
     }
 }

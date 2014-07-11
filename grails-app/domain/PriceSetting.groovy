@@ -12,7 +12,7 @@ class PriceSetting {
 
     static mapping = {
     	pricePerInitialTenKg column: 'price_per_initial_ten_kg'
-    	priceSuccceedingKg column: 'price_succeeding_kg'
+    	priceSuccceedingKg column: 'price_per_kg'
     	effectivityDate column: 'date_effectivity'
     }
 
