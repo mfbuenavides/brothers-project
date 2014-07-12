@@ -23,6 +23,7 @@ class InitialCapital {
 	}
 
 	static mapping = {
+		table 'initial_capital'
 		raiser column: 'raiser_id'
 		priceSetting column: 'price_setting_id'
 		pigSource column: 'pig_source'

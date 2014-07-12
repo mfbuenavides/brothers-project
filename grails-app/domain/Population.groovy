@@ -17,6 +17,7 @@ class Population {
 	}
 
 	static mapping = {
+		table 'population'
 		raiser column: 'raiser_id'
 		numberOfPiglets column: 'no_of_piglets'
 		deliveryDate column: 'delivery_date'

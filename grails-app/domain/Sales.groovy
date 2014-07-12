@@ -1,7 +1,7 @@
 class Sales {
 
 	Raiser raiser
-	Date dateStarted
+	Date dateSold
 	String haulerName
 	String remarks
 	int quantity
@@ -24,8 +24,9 @@ class Sales {
 	}
 
 	static mapping = {
+		table 'sales'
 		raiser column: 'raiser_id'
-		dateStarted column: 'date_started'
+		dateStarted column: 'date_sold'
 		haulerName column: 'hauler_name'
 		quantity column: 'qty'
 		amount column: 'amount'

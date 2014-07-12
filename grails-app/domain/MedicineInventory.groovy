@@ -17,6 +17,7 @@ class MedicineInventory {
     }
 
     static mapping = {
+        table 'medicine_inventory'
     	name column: 'name'
     	unit column: 'unit'
     	cost column: 'cost'

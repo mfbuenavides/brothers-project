@@ -11,6 +11,7 @@ class Raiser {
     }
 
     static mapping = {
+        table 'raiser'
     	firstName column: 'first_name'
     	lastName column: 'last_name'
     	batchNumber column: 'batch_no'

@@ -24,13 +24,15 @@ class FeedsInventory {
 	}
 
 	static mapping = {
+		table 'feeds_inventory'
 		raiser column: 'raiser_id'
 		invoiceNumber column: 'invoice_no'
 		date column: 'date'
 		quantity column: 'qty'
 		truckingPerBag column: 'trucking_per_bag'
-		price column: 'price'
 		amount column: 'amount'
+		truckingCost column: 'trucking_cost'
+		price column: 'price'
 		unit column: 'unit'
 		description column: 'description'
 	}

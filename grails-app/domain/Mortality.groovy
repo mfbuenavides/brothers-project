@@ -13,6 +13,7 @@ class Mortality {
 	}	
 
 	static mapping = {
+		table 'mortality'
 		raiser column: 'raiser_id'
 		dateOfDeath column: 'date_of_death'
 		numberOfHeads column: 'number_of_heads'
