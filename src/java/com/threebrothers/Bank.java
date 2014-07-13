@@ -1,21 +1,15 @@
 package com.threebrothers;
 
 /** Enum to represent the fingers used during data capturing and examinee authentication. */
-public enum Bank implements org.springframework.context.MessageSourceResolvable {
+public enum Bank {
 
     BDO("Banco de Oro"),
     AUB("Asia United Bank");
 
-    public Object[] getArguments() {
-        return new Object[]{};
-    }
+    String name;
 
-    public String[] getCodes() {
-        return new String[]{ getClass().getName()+"."+name() };
-    }
-
-    public String getDefaultMessage() {
-        return name();
+    Bank(String name) {
+        this.name = name;
     }
 }
 

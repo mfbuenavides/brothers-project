@@ -13,7 +13,7 @@ class Sales {
 
 	static constraints = {
 		raiser nullable: false, blank: false
-		dateStarted nullable: false, blank: false
+		dateSold nullable: false, blank: false
 		haulerName nullable: false, blank: false, maxSize: 100
 		quantity nullable: false, blank: false
 		amount nullable: false, blank: false
@@ -26,7 +26,7 @@ class Sales {
 	static mapping = {
 		table 'sales'
 		raiser column: 'raiser_id'
-		dateStarted column: 'date_sold'
+		dateSold column: 'date_sold'
 		haulerName column: 'hauler_name'
 		quantity column: 'qty'
 		amount column: 'amount'

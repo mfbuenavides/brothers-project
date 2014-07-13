@@ -11,7 +11,7 @@ class CashFlow {
 	PaymentMode mode
 
 	static constraints = {
-		date nullable: false, blank: false
+		transactionDate nullable: false, blank: false
 		amount nullable: false, blank: false
 		paidTo nullable: false, blank: false
 		remarks nullable: true, blank: true
