@@ -1,7 +1,5 @@
 import org.springframework.dao.DataIntegrityViolationException
-import org.springframework.security.access.annotation.Secured
 
-@Secured(['ROLE_ADMIN'])
 class PriceSettingController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
@@ -21,7 +19,6 @@ class PriceSettingController {
 
     def save() {
         def priceSettingInstance = new PriceSetting(params)
-        
         if (!priceSettingInstance.save(flush: true)) {
             render(view: "create", model: [priceSettingInstance: priceSettingInstance])
             return

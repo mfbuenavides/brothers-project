@@ -1,3 +1,5 @@
+import groovy.time.TimeCategory
+
 class InitialCapital {
 
 	Raiser raiser
@@ -6,9 +8,13 @@ class InitialCapital {
 	int numberOfHeads
 	double totalWeight
 	double truckingExpenses
-	Date dateStarted
 	double grossAmount
 	double averageWeight
+	double netAmount
+	double averagePrice
+	Date dateStarted
+	Date expectedHaulDate
+	//pending relationship to mortality
 
 	static constraints = {
 		raiser nullable: false
@@ -20,6 +26,9 @@ class InitialCapital {
 		dateStarted nullable: false, blank: true
 		grossAmount nullable: true
 		averageWeight nullable: true
+		netAmount nullable: false, blank: false
+		averagePrice nullable: false, blank: false
+		expectedHaulDate nullable: false, blank: false
 	}
 
 	static mapping = {
@@ -33,6 +42,9 @@ class InitialCapital {
 		dateStarted column: 'date_started'
 		grossAmount column: 'gross_amount'
 		averageWeight column: 'average_weight'
+		netAmount column: 'net_amount'
+		averagePrice column: 'average_price'
+		expectedHaulDate column: 'expected_haul_date'
 	}
 
 	def beforeInsert() {
@@ -43,6 +55,19 @@ class InitialCapital {
 			grossAmount = ((10 * priceSetting.pricePerInitialTenKg) + (remainingKg * priceSetting.priceSucceedingKg))
 		} else {
 			grossAmount = totalWeight * priceSetting.pricePerInitialTenKg
+		}
+
+		use (TimeCategory) {
+			expectedHaulDate = dateStarted + 105.days
+		}
+
+		netAmount = grossAmount + truckingExpenses
+		averagePrice = netAmount / numberOfHeads
+	}
+
+	def getAging() {
+		use (TimeCategory) {
+			(new Date() - dateStarted).getDays() 
 		}
 	}
 }

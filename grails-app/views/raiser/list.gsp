@@ -30,6 +30,8 @@
 					
 						<g:sortableColumn property="batchNumber" title="${message(code: 'raiser.batchNumber.label', default: 'Batch Number')}" />
 					
+						<g:sortableColumn property="dateStarted" title="${message(code: 'raiser.dateStarted.label', default: 'Date Started')}" />
+					
 					</tr>
 				</thead>
 				<tbody>
@@ -41,6 +43,8 @@
 						<td>${fieldValue(bean: raiserInstance, field: "lastName")}</td>
 					
 						<td>${fieldValue(bean: raiserInstance, field: "batchNumber")}</td>
+					
+						<td><g:formatDate date="${raiserInstance.dateStarted}" /></td>
 					
 					</tr>
 				</g:each>

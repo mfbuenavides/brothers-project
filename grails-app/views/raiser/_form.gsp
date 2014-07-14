@@ -26,3 +26,11 @@
 	<g:field name="batchNumber" type="number" value="${raiserInstance.batchNumber}" required=""/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: raiserInstance, field: 'dateStarted', 'error')} required">
+	<label for="dateStarted">
+		<g:message code="raiser.dateStarted.label" default="Date Started" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:datePicker name="dateStarted" precision="day"  value="${raiserInstance?.dateStarted}"  />
+</div>
+

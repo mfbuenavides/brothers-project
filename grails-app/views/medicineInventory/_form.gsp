@@ -10,12 +10,12 @@
 	<g:textField name="name" maxlength="100" required="" value="${medicineInventoryInstance?.name}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: medicineInventoryInstance, field: 'unit', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: medicineInventoryInstance, field: 'unit', 'error')} ">
 	<label for="unit">
 		<g:message code="medicineInventory.unit.label" default="Unit" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="unit" required="" value="${medicineInventoryInstance?.unit}"/>
+	<g:textField name="unit" value="${medicineInventoryInstance?.unit}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: medicineInventoryInstance, field: 'cost', 'error')} required">

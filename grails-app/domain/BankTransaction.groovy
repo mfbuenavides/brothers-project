@@ -8,7 +8,7 @@ class BankTransaction {
 	double balance
 	String checkNumber
 	String description
-	String from
+	String transactionWith
 	Bank bank
 	TransactionType transactionType
 	PaymentMode mode
@@ -20,7 +20,7 @@ class BankTransaction {
 		balance nullable: false, blank: false, maxSize: 15
 		checkNumber nullable: true, blank: true, maxSize: 50
 		description nullable: false, blank: false, maxSize: 100
-		from nullable: true, blank: true
+		transactionWith nullable: true, blank: true
 	}
 
 	static mapping = {
@@ -30,6 +30,6 @@ class BankTransaction {
 		balance column: 'balance'
 		checkNumber column: 'check_no'
 		description column: 'description'
-		from column: 'from'
+		transactionWith column: 'transaction_with'
 	}
 }

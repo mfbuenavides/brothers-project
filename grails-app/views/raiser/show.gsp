@@ -50,6 +50,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${raiserInstance?.dateStarted}">
+				<li class="fieldcontain">
+					<span id="dateStarted-label" class="property-label"><g:message code="raiser.dateStarted.label" default="Date Started" /></span>
+					
+						<span class="property-value" aria-labelledby="dateStarted-label"><g:formatDate date="${raiserInstance?.dateStarted}" /></span>
+					
+				</li>
+				</g:if>
+			
 			</ol>
 			<g:form>
 				<fieldset class="buttons">

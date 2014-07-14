@@ -1,3 +1,7 @@
+
+
+
+
 <div class="fieldcontain ${hasErrors(bean: priceSettingInstance, field: 'pricePerInitialTenKg', 'error')} required">
 	<label for="pricePerInitialTenKg">
 		<g:message code="priceSetting.pricePerInitialTenKg.label" default="Price Per Initial Ten Kg" />
@@ -12,5 +16,13 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:field name="priceSuccceedingKg" value="${fieldValue(bean: priceSettingInstance, field: 'priceSuccceedingKg')}" required=""/>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: priceSettingInstance, field: 'effectivityDate', 'error')} ">
+	<label for="effectivityDate">
+		<g:message code="priceSetting.effectivityDate.label" default="Effectivity Date" />
+		
+	</label>
+	<g:datePicker name="effectivityDate" precision="day"  value="${priceSettingInstance?.effectivityDate}" default="none" noSelection="['': '']" />
 </div>
 

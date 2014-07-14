@@ -10,8 +10,8 @@ class BootStrap {
 
 	    AccountRole.create testUser, adminRole, true
 
-	    def raiserTwo = new Raiser(firstName: 'Jason', lastName: 'Statham', batchNumber: 3)
-	    def raiserOne = new Raiser(firstName: 'Sylvester', lastName: 'Stallone', batchNumber: 1)
+	    def raiserTwo = new Raiser(firstName: 'Jason', lastName: 'Statham', batchNumber: 3, dateStarted: new Date())
+	    def raiserOne = new Raiser(firstName: 'Sylvester', lastName: 'Stallone', batchNumber: 1, dateStarted: new Date())
 
 	    raiserOne.save(flush: true, failOnError: true)
 	    raiserTwo.save(flush: true, failOnError: true)
