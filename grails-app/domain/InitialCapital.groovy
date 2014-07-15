@@ -14,7 +14,8 @@ class InitialCapital {
 	double averagePrice
 	Date dateStarted
 	Date expectedHaulDate
-	//pending relationship to mortality
+	
+	static hasMany = [mortalities: Mortality]
 
 	static constraints = {
 		raiser nullable: false

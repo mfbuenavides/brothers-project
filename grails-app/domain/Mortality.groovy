@@ -5,11 +5,14 @@ class Mortality {
 	int numberOfHeads
 	String causeOfDeath
 
+	static belongsTo = [initialCapital: InitialCapital]
+
 	static constraints = {
 		raiser nullable: false, blank: false
 		dateOfDeath nullable: false, blank: false
 		numberOfHeads nullable: false, blank: false
 		causeOfDeath nullable: true, blank: true
+		initialCapital nullable: false
 	}	
 
 	static mapping = {
