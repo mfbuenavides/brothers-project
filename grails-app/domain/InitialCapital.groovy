@@ -30,6 +30,7 @@ class InitialCapital {
 		netAmount nullable: false, blank: false
 		averagePrice nullable: false, blank: false
 		expectedHaulDate nullable: false, blank: false
+		mortalities nullable: true
 	}
 
 	static mapping = {
