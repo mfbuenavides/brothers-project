@@ -8,12 +8,11 @@
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#show-initialCapital" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+				<li><a class="home button tiny radius" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a>
+				<g:link class="list button tiny radius" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link>
+				<g:link class="create button tiny radius" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
 		<div id="show-initialCapital" class="content scaffold-show" role="main">
@@ -131,13 +130,22 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${initialCapitalInstance?.mortalities}">
+				<li class="fieldcontain">
+					<span id="mortalities-label" class="property-label"><g:message code="initialCapital.mortalities.label" default="Mortalities" /></span>
+					
+						<g:each in="${initialCapitalInstance.mortalities}" var="m">
+						<span class="property-value" aria-labelledby="mortalities-label"><g:link controller="mortality" action="show" id="${m.id}">${m?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
 			</ol>
-			<g:form>
-				<fieldset class="buttons">
-					<g:hiddenField name="id" value="${initialCapitalInstance?.id}" />
-					<g:link class="edit" action="edit" id="${initialCapitalInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-				</fieldset>
+			<g:form>			
+				<g:hiddenField name="id" value="${initialCapitalInstance?.id}" />
+				<g:link class="edit button radius" action="edit" id="${initialCapitalInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+				<g:actionSubmit class="delete button radius" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />			
 			</g:form>
 		</div>
 	</body>

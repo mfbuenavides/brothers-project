@@ -8,11 +8,10 @@
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#list-mortality" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+				<li><a class="home button tiny radius" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a>
+				<g:link class="create button tiny radius" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
 		<div id="list-mortality" class="content scaffold-list" role="main">
@@ -20,32 +19,38 @@
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
-			<table>
+			<table class="pricing-table">
 				<thead>
 					<tr>
 					
 						<th><g:message code="mortality.raiser.label" default="Raiser" /></th>
 					
-						<g:sortableColumn property="dateOfDeath" title="${message(code: 'mortality.dateOfDeath.label', default: 'Date Of Death')}" />
+						<g:sortableColumn property="dateOfDeath" title="${message(code: 'mortality.dateOfDeath.label', default: 'Date Of Death')}" class="title"/>
 					
-						<g:sortableColumn property="numberOfHeads" title="${message(code: 'mortality.numberOfHeads.label', default: 'Number Of Heads')}" />
+						<g:sortableColumn property="numberOfHeads" title="${message(code: 'mortality.numberOfHeads.label', default: 'Number Of Heads')}" class="title"/>
 					
-						<g:sortableColumn property="causeOfDeath" title="${message(code: 'mortality.causeOfDeath.label', default: 'Cause Of Death')}" />
+						<g:sortableColumn property="causeOfDeath" title="${message(code: 'mortality.causeOfDeath.label', default: 'Cause Of Death')}" class="title"/>
 					
+						<th><g:message code="mortality.initialCapital.label" default="Initial Capital" /></th>
+					
+					    <g:sortableColumn property="action" title="Action"  class="title"/>
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${mortalityInstanceList}" status="i" var="mortalityInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${mortalityInstance.id}">${fieldValue(bean: mortalityInstance, field: "raiser")}</g:link></td>
+						<td>${fieldValue(bean: mortalityInstance, field: "raiser")}</td>
 					
-						<td><g:formatDate date="${mortalityInstance.dateOfDeath}" /></td>
+						<td><g:formatDate format="MMM dd, yyyy" date="${mortalityInstance.dateOfDeath}" /></td>
 					
 						<td>${fieldValue(bean: mortalityInstance, field: "numberOfHeads")}</td>
 					
 						<td>${fieldValue(bean: mortalityInstance, field: "causeOfDeath")}</td>
 					
+						<td>${fieldValue(bean: mortalityInstance, field: "initialCapital")}</td>
+					
+					<td> <g:link action="edit" id="${mortalityInstance.id}" class="button tiny radius" > View/Edit </g:link> </td>
 					</tr>
 				</g:each>
 				</tbody>

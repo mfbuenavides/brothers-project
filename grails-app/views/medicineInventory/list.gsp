@@ -8,11 +8,10 @@
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#list-medicineInventory" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+				<li><a class="home button tiny radius" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a>
+				<g:link class="create button tiny radius" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
 		<div id="list-medicineInventory" class="content scaffold-list" role="main">
@@ -20,27 +19,28 @@
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
-			<table>
+			<table class="pricing-table">
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="name" title="${message(code: 'medicineInventory.name.label', default: 'Name')}" />
+						<g:sortableColumn property="name" title="${message(code: 'medicineInventory.name.label', default: 'Name')}" class="title"/>
 					
-						<g:sortableColumn property="unit" title="${message(code: 'medicineInventory.unit.label', default: 'Unit')}" />
+						<g:sortableColumn property="unit" title="${message(code: 'medicineInventory.unit.label', default: 'Unit')}" class="title"/>
 					
-						<g:sortableColumn property="cost" title="${message(code: 'medicineInventory.cost.label', default: 'Cost')}" />
+						<g:sortableColumn property="cost" title="${message(code: 'medicineInventory.cost.label', default: 'Cost')}" class="title"/>
 					
-						<g:sortableColumn property="quantity" title="${message(code: 'medicineInventory.quantity.label', default: 'Quantity')}" />
+						<g:sortableColumn property="quantity" title="${message(code: 'medicineInventory.quantity.label', default: 'Quantity')}" class="title"/>
 					
-						<g:sortableColumn property="medicineType" title="${message(code: 'medicineInventory.medicineType.label', default: 'Medicine Type')}" />
+						<g:sortableColumn property="medicineType" title="${message(code: 'medicineInventory.medicineType.label', default: 'Medicine Type')}" class="title"/>
 					
+					    <g:sortableColumn property="action" title="Action"  class="title"/>
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${medicineInventoryInstanceList}" status="i" var="medicineInventoryInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${medicineInventoryInstance.id}">${fieldValue(bean: medicineInventoryInstance, field: "name")}</g:link></td>
+						<td>${fieldValue(bean: medicineInventoryInstance, field: "name")}</td>
 					
 						<td>${fieldValue(bean: medicineInventoryInstance, field: "unit")}</td>
 					
@@ -50,6 +50,7 @@
 					
 						<td>${fieldValue(bean: medicineInventoryInstance, field: "medicineType")}</td>
 					
+					<td> <g:link action="edit" id="${medicineInventoryInstance.id}" class="button tiny radius" > View/Edit </g:link> </td>
 					</tr>
 				</g:each>
 				</tbody>

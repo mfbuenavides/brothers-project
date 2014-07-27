@@ -8,11 +8,10 @@
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#list-feedsInventory" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+				<li><a class="home button tiny radius" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a>
+				<g:link class="create button tiny radius" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
 		<div id="list-feedsInventory" class="content scaffold-list" role="main">
@@ -20,33 +19,34 @@
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
-			<table>
+			<table class="pricing-table">
 				<thead>
 					<tr>
 					
 						<th><g:message code="feedsInventory.raiser.label" default="Raiser" /></th>
 					
-						<g:sortableColumn property="invoiceNumber" title="${message(code: 'feedsInventory.invoiceNumber.label', default: 'Invoice Number')}" />
+						<g:sortableColumn property="invoiceNumber" title="${message(code: 'feedsInventory.invoiceNumber.label', default: 'Invoice Number')}" class="title"/>
 					
-						<g:sortableColumn property="date" title="${message(code: 'feedsInventory.date.label', default: 'Date')}" />
+						<g:sortableColumn property="date" title="${message(code: 'feedsInventory.date.label', default: 'Date')}" class="title"/>
 					
-						<g:sortableColumn property="quantity" title="${message(code: 'feedsInventory.quantity.label', default: 'Quantity')}" />
+						<g:sortableColumn property="quantity" title="${message(code: 'feedsInventory.quantity.label', default: 'Quantity')}" class="title"/>
 					
-						<g:sortableColumn property="truckingPerBag" title="${message(code: 'feedsInventory.truckingPerBag.label', default: 'Trucking Per Bag')}" />
+						<g:sortableColumn property="truckingPerBag" title="${message(code: 'feedsInventory.truckingPerBag.label', default: 'Trucking Per Bag')}" class="title"/>
 					
-						<g:sortableColumn property="price" title="${message(code: 'feedsInventory.price.label', default: 'Price')}" />
+						<g:sortableColumn property="price" title="${message(code: 'feedsInventory.price.label', default: 'Price')}" class="title"/>
 					
+					    <g:sortableColumn property="action" title="Action"  class="title"/>
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${feedsInventoryInstanceList}" status="i" var="feedsInventoryInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${feedsInventoryInstance.id}">${fieldValue(bean: feedsInventoryInstance, field: "raiser")}</g:link></td>
+						<td>${fieldValue(bean: feedsInventoryInstance, field: "raiser")}</td>
 					
 						<td>${fieldValue(bean: feedsInventoryInstance, field: "invoiceNumber")}</td>
 					
-						<td><g:formatDate date="${feedsInventoryInstance.date}" /></td>
+						<td><g:formatDate format="MMM dd, yyyy" date="${feedsInventoryInstance.date}" /></td>
 					
 						<td>${fieldValue(bean: feedsInventoryInstance, field: "quantity")}</td>
 					
@@ -54,6 +54,7 @@
 					
 						<td>${fieldValue(bean: feedsInventoryInstance, field: "price")}</td>
 					
+					<td> <g:link action="edit" id="${feedsInventoryInstance.id}" class="button tiny radius" > View/Edit </g:link> </td>
 					</tr>
 				</g:each>
 				</tbody>

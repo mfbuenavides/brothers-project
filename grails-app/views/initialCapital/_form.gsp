@@ -98,3 +98,20 @@
 	<g:datePicker name="expectedHaulDate" precision="day"  value="${initialCapitalInstance?.expectedHaulDate}"  />
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: initialCapitalInstance, field: 'mortalities', 'error')} ">
+	<label for="mortalities">
+		<g:message code="initialCapital.mortalities.label" default="Mortalities" />
+		
+	</label>
+	
+<ul class="one-to-many">
+<g:each in="${initialCapitalInstance?.mortalities?}" var="m">
+    <li><g:link controller="mortality" action="show" id="${m.id}">${m?.encodeAsHTML()}</g:link></li>
+</g:each>
+<li class="add">
+<g:link controller="mortality" action="create" params="['initialCapital.id': initialCapitalInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'mortality.label', default: 'Mortality')])}</g:link>
+</li>
+</ul>
+
+</div>
+

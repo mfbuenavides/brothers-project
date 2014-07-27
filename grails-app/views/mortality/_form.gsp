@@ -34,3 +34,11 @@
 	<g:textField name="causeOfDeath" value="${mortalityInstance?.causeOfDeath}"/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: mortalityInstance, field: 'initialCapital', 'error')} required">
+	<label for="initialCapital">
+		<g:message code="mortality.initialCapital.label" default="Initial Capital" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="initialCapital" name="initialCapital.id" from="${InitialCapital.list()}" optionKey="id" required="" value="${mortalityInstance?.initialCapital?.id}" class="many-to-one"/>
+</div>
+
