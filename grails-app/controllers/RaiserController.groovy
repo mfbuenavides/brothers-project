@@ -23,9 +23,10 @@ class RaiserController {
             render(view: "create", model: [raiserInstance: raiserInstance])
             return
         }
-
-        flash.message = message(code: 'default.created.message', args: [message(code: 'raiser.label', default: 'Raiser'), raiserInstance.id])
-        redirect(action: "show", id: raiserInstance.id)
+	
+        flash.message = message(code: 'default.created.message', args: [message(code: 'raiser.label', default: 'Raiser'), (raiserInstance.firstName + " " +  raiserInstance.lastName)])
+        //redirect(action: "show", id: raiserInstance.id)
+        redirect(action: "list", params: params)
     }
 
     def show(Long id) {
@@ -42,7 +43,7 @@ class RaiserController {
     def edit(Long id) {
         def raiserInstance = Raiser.get(id)
         if (!raiserInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'raiser.label', default: 'Raiser'), id])
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'raiser.label', default: 'Raiser'), (raiserInstance.firstName + " " +  raiserInstance.lastName)])
             redirect(action: "list")
             return
         }
@@ -75,21 +76,21 @@ class RaiserController {
             return
         }
 
-        flash.message = message(code: 'default.updated.message', args: [message(code: 'raiser.label', default: 'Raiser'), raiserInstance.id])
-        redirect(action: "show", id: raiserInstance.id)
+        flash.message = message(code: 'default.updated.message', args: [message(code: 'raiser.label', default: 'Raiser'), (raiserInstance.firstName + " " +  raiserInstance.lastName)])
+        redirect(action: "list")
     }
 
     def delete(Long id) {
         def raiserInstance = Raiser.get(id)
         if (!raiserInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'raiser.label', default: 'Raiser'), id])
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'raiser.label', default: 'Raiser'), (raiserInstance.firstName + " " +  raiserInstance.lastName)])
             redirect(action: "list")
             return
         }
 
         try {
             raiserInstance.delete(flush: true)
-            flash.message = message(code: 'default.deleted.message', args: [message(code: 'raiser.label', default: 'Raiser'), id])
+            flash.message = message(code: 'default.deleted.message', args: [message(code: 'raiser.label', default: 'Raiser'), (raiserInstance.firstName + " " +  raiserInstance.lastName)])
             redirect(action: "list")
         }
         catch (DataIntegrityViolationException e) {
