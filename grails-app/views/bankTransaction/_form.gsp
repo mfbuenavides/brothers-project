@@ -31,7 +31,7 @@
 		<g:message code="bankTransaction.balance.label" default="Balance" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="balance" value="${fieldValue(bean: bankTransactionInstance, field: 'balance')}" required=""/>
+	<g:field name="balance" type="number" value="${fieldValue(bean: bankTransactionInstance, field: 'balance')}" required=""/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: bankTransactionInstance, field: 'checkNumber', 'error')} ">

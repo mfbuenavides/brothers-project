@@ -4,7 +4,7 @@
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'bankTransaction.label', default: 'BankTransaction')}" />
-		<title><g:message code="default.create.label" args="[entityName]" /></title>
+		<title>  New Bank Transaction </title>
 	</head>
 	<body>
 		<div class="nav" role="navigation">
@@ -14,7 +14,7 @@
 			</ul>
 		</div>
 		<div id="create-bankTransaction" class="content scaffold-create" role="main">
-			<h1><g:message code="default.create.label" args="[entityName]" /></h1>
+			<h1>  New Bank Transaction </h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
