@@ -10,8 +10,8 @@
 		<div class="nav" role="navigation">
 			<ul>
 				<li><a class="home button tiny radius" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a>
-				<g:link class="list button tiny radius" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link>
-				<g:link class="create button tiny radius" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+				<g:link class="list button tiny radius" action="list"> Cash Flow List </g:link>
+				<g:link class="create button tiny radius" action="create"> New Cash Flow </g:link></li>
 			</ul>
 		</div>
 		<div id="edit-cashFlow" class="content scaffold-edit" role="main">

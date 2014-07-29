@@ -4,7 +4,7 @@
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'feedsInventory.label', default: 'FeedsInventory')}" />
-		<title><g:message code="default.create.label" args="[entityName]" /></title>
+		<title> New Feeds </title>
 	</head>
 	<body>
 		<div class="nav" role="navigation">
@@ -14,7 +14,7 @@
 			</ul>
 		</div>
 		<div id="create-feedsInventory" class="content scaffold-create" role="main">
-			<h1><g:message code="default.create.label" args="[entityName]" /></h1>
+			<h1> New Feeds </h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>

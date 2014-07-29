@@ -5,7 +5,7 @@
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'cashFlow.label', default: 'CashFlow')}" />
-		<title><g:message code="default.list.label" args="[entityName]" /></title>
+		<title> Cash Flow List </title>
 	</head>
 	<body>
 		<div class="nav" role="navigation">
@@ -15,9 +15,9 @@
 			</ul>
 		</div>
 		<div id="list-cashFlow" class="content scaffold-list" role="main">
-			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
+			<h1> Cash Flow List </h1>
 			<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div>
+			<div class="message info radius-misc" role="status">${flash.message}</div>
 			</g:if>
 			<table class="pricing-table">
 				<thead>
@@ -42,7 +42,7 @@
 				<g:each in="${cashFlowInstanceList}" status="i" var="cashFlowInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td>${fieldValue(bean: cashFlowInstance, field: "transactionDate")}</td>
+						<td> <g:formatDate format="MMM dd, yyyy"  date="${cashFlowInstance.transactionDate}" /></td>
 					
 						<td>${fieldValue(bean: cashFlowInstance, field: "amount")}</td>
 					
