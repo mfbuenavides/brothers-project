@@ -4,17 +4,17 @@
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'medicineInventory.label', default: 'MedicineInventory')}" />
-		<title><g:message code="default.create.label" args="[entityName]" /></title>
+		<title> New Medicine </title>
 	</head>
 	<body>
 		<div class="nav" role="navigation">
 			<ul>
 				<li><a class="home  button tiny radius" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a>
-				<g:link class="list button tiny radius" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
+				<g:link class="list button tiny radius" action="list"> Medicine List </g:link></li>
 			</ul>
 		</div>
 		<div id="create-medicineInventory" class="content scaffold-create" role="main">
-			<h1><g:message code="default.create.label" args="[entityName]" /></h1>
+			<h1> New Medicine </h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>

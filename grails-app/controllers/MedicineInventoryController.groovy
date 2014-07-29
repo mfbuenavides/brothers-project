@@ -24,8 +24,8 @@ class MedicineInventoryController {
             return
         }
 
-        flash.message = message(code: 'default.created.message', args: [message(code: 'medicineInventory.label', default: 'MedicineInventory'), medicineInventoryInstance.id])
-        redirect(action: "show", id: medicineInventoryInstance.id)
+        flash.message = "New Medicine successfully created."
+        redirect(action: "list", params: params)
     }
 
     def show(Long id) {
@@ -75,8 +75,8 @@ class MedicineInventoryController {
             return
         }
 
-        flash.message = message(code: 'default.updated.message', args: [message(code: 'medicineInventory.label', default: 'MedicineInventory'), medicineInventoryInstance.id])
-        redirect(action: "show", id: medicineInventoryInstance.id)
+        flash.message = "Medicine successfully updated."
+        redirect(action: "list")
     }
 
     def delete(Long id) {
@@ -89,7 +89,7 @@ class MedicineInventoryController {
 
         try {
             medicineInventoryInstance.delete(flush: true)
-            flash.message = message(code: 'default.deleted.message', args: [message(code: 'medicineInventory.label', default: 'MedicineInventory'), id])
+            flash.message = "Medicine deleted."
             redirect(action: "list")
         }
         catch (DataIntegrityViolationException e) {
