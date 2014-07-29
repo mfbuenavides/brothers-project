@@ -24,8 +24,8 @@ class CashFlowController {
             return
         }
 
-        flash.message = message(code: 'default.created.message', args: [message(code: 'cashFlow.label', default: 'CashFlow'), cashFlowInstance.id])
-        redirect(action: "show", id: cashFlowInstance.id)
+        flash.message = "Successfully created cash flow."
+        redirect(action: "list", params: params)
     }
 
     def show(Long id) {
@@ -75,8 +75,8 @@ class CashFlowController {
             return
         }
 
-        flash.message = message(code: 'default.updated.message', args: [message(code: 'cashFlow.label', default: 'CashFlow'), cashFlowInstance.id])
-        redirect(action: "show", id: cashFlowInstance.id)
+        flash.message = "Successfully updated cash flow."
+        redirect(action: "list")
     }
 
     def delete(Long id) {
@@ -89,7 +89,7 @@ class CashFlowController {
 
         try {
             cashFlowInstance.delete(flush: true)
-            flash.message = message(code: 'default.deleted.message', args: [message(code: 'cashFlow.label', default: 'CashFlow'), id])
+            flash.message = "Successfully deleted cash flow."
             redirect(action: "list")
         }
         catch (DataIntegrityViolationException e) {

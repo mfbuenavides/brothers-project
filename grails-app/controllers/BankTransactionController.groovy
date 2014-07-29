@@ -24,8 +24,8 @@ class BankTransactionController {
             return
         }
 
-        flash.message = message(code: 'default.created.message', args: [message(code: 'bankTransaction.label', default: 'BankTransaction'), bankTransactionInstance.id])
-        redirect(action: "show", id: bankTransactionInstance.id)
+        flash.message = "Successfully created bank transaction."
+        redirect(action: "list", params: params)
     }
 
     def show(Long id) {
@@ -75,8 +75,8 @@ class BankTransactionController {
             return
         }
 
-        flash.message = message(code: 'default.updated.message', args: [message(code: 'bankTransaction.label', default: 'BankTransaction'), bankTransactionInstance.id])
-        redirect(action: "show", id: bankTransactionInstance.id)
+        flash.message = "Successfully updated bank transaction."
+        redirect(action: "list")
     }
 
     def delete(Long id) {
@@ -89,7 +89,7 @@ class BankTransactionController {
 
         try {
             bankTransactionInstance.delete(flush: true)
-            flash.message = message(code: 'default.deleted.message', args: [message(code: 'bankTransaction.label', default: 'BankTransaction'), id])
+            flash.message = "Successfully deleted bank transaction."
             redirect(action: "list")
         }
         catch (DataIntegrityViolationException e) {
