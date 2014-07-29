@@ -24,8 +24,8 @@ class PriceSettingController {
             return
         }
 
-        flash.message = message(code: 'default.created.message', args: [message(code: 'priceSetting.label', default: 'PriceSetting'), priceSettingInstance.id])
-        redirect(action: "show", id: priceSettingInstance.id)
+        flash.message = message(code: 'default.created.message', args: [message(code: 'priceSetting.label', default: 'PriceSetting'), ""])
+        redirect(action: "list", params: params)
     }
 
     def show(Long id) {
@@ -53,7 +53,7 @@ class PriceSettingController {
     def update(Long id, Long version) {
         def priceSettingInstance = PriceSetting.get(id)
         if (!priceSettingInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'priceSetting.label', default: 'PriceSetting'), id])
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'priceSetting.label', default: 'PriceSetting'), ""])
             redirect(action: "list")
             return
         }
@@ -75,8 +75,8 @@ class PriceSettingController {
             return
         }
 
-        flash.message = message(code: 'default.updated.message', args: [message(code: 'priceSetting.label', default: 'PriceSetting'), priceSettingInstance.id])
-        redirect(action: "show", id: priceSettingInstance.id)
+        flash.message = message(code: 'default.updated.message', args: [message(code: 'priceSetting.label', default: 'PriceSetting'), ""])
+        redirect(action: "list")
     }
 
     def delete(Long id) {
@@ -89,7 +89,7 @@ class PriceSettingController {
 
         try {
             priceSettingInstance.delete(flush: true)
-            flash.message = message(code: 'default.deleted.message', args: [message(code: 'priceSetting.label', default: 'PriceSetting'), id])
+            flash.message = message(code: 'default.deleted.message', args: [message(code: 'priceSetting.label', default: 'PriceSetting'), ""])
             redirect(action: "list")
         }
         catch (DataIntegrityViolationException e) {

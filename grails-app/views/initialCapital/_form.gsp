@@ -1,13 +1,10 @@
 
-
-
-
 <div class="fieldcontain ${hasErrors(bean: initialCapitalInstance, field: 'raiser', 'error')} required">
 	<label for="raiser">
 		<g:message code="initialCapital.raiser.label" default="Raiser" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="raiser" name="raiser.id" from="${Raiser.list()}" optionKey="id" required="" value="${initialCapitalInstance?.raiser?.id}" class="many-to-one"/>
+	<g:select id="raiser" name="raiser.id" from="${Raiser.list()}" optionKey="id" optionValue="firstName" required="" value="${initialCapitalInstance?.raiser?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: initialCapitalInstance, field: 'priceSetting', 'error')} required">
@@ -39,7 +36,7 @@
 		<g:message code="initialCapital.totalWeight.label" default="Total Weight" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="totalWeight" value="${fieldValue(bean: initialCapitalInstance, field: 'totalWeight')}" required=""/>
+	<g:field name="totalWeight" type="number" value="${fieldValue(bean: initialCapitalInstance, field: 'totalWeight')}" required=""/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: initialCapitalInstance, field: 'truckingExpenses', 'error')} required">
@@ -47,7 +44,7 @@
 		<g:message code="initialCapital.truckingExpenses.label" default="Trucking Expenses" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="truckingExpenses" value="${fieldValue(bean: initialCapitalInstance, field: 'truckingExpenses')}" required=""/>
+	<g:field name="truckingExpenses" type="number"  value="${fieldValue(bean: initialCapitalInstance, field: 'truckingExpenses')}" required=""/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: initialCapitalInstance, field: 'dateStarted', 'error')} required">
@@ -63,7 +60,7 @@
 		<g:message code="initialCapital.grossAmount.label" default="Gross Amount" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="grossAmount" value="${fieldValue(bean: initialCapitalInstance, field: 'grossAmount')}" required=""/>
+	<g:field name="grossAmount" type="number"  value="${fieldValue(bean: initialCapitalInstance, field: 'grossAmount')}" required=""/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: initialCapitalInstance, field: 'averageWeight', 'error')} required">
@@ -71,7 +68,7 @@
 		<g:message code="initialCapital.averageWeight.label" default="Average Weight" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="averageWeight" value="${fieldValue(bean: initialCapitalInstance, field: 'averageWeight')}" required=""/>
+	<g:field name="averageWeight" type="number"  value="${fieldValue(bean: initialCapitalInstance, field: 'averageWeight')}" required=""/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: initialCapitalInstance, field: 'netAmount', 'error')} required">
@@ -79,7 +76,7 @@
 		<g:message code="initialCapital.netAmount.label" default="Net Amount" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="netAmount" value="${fieldValue(bean: initialCapitalInstance, field: 'netAmount')}" required=""/>
+	<g:field name="netAmount" type="number"  value="${fieldValue(bean: initialCapitalInstance, field: 'netAmount')}" required=""/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: initialCapitalInstance, field: 'averagePrice', 'error')} required">
@@ -87,7 +84,7 @@
 		<g:message code="initialCapital.averagePrice.label" default="Average Price" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="averagePrice" value="${fieldValue(bean: initialCapitalInstance, field: 'averagePrice')}" required=""/>
+	<g:field name="averagePrice" type="number"  value="${fieldValue(bean: initialCapitalInstance, field: 'averagePrice')}" required=""/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: initialCapitalInstance, field: 'expectedHaulDate', 'error')} required">

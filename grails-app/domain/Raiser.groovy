@@ -19,4 +19,8 @@ class Raiser {
     	batchNumber column: 'batch_no'
         dateStarted column: 'date_started'
     }
+    
+    public String getFullName(){
+    	return firstName
+    }
 }
