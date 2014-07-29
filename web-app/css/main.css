@@ -35,4 +35,16 @@ table a {
 table tbody tr td{
 	padding: 5px 10px;	
 }
-
+.radius-misc {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.info{
+	background:#C2E6CE;
+	padding: 10px;
+	margin-bottom: 15px;
+}
+.error {
+	background: #DAACAC;
+}
