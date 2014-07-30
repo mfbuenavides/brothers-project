@@ -12,8 +12,10 @@
 		<link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.ico')}" type="image/x-icon">
 		<link rel="stylesheet" href="${resource(dir: 'css', file: 'normalize.css')}" type="text/css">		
 		<link rel="stylesheet" href="${resource(dir: 'css', file: 'foundation.css')}" type="text/css">
-		<link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">		
+		<link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">				
 		<script src="js/vendor/modernizr.js"></script>
+		<script src="js/jquery-2.1.1.min.js"></script>
+		<g:javascript library="jquery" plugin="jquery"/>
 		<g:layoutHead/>
 		<r:layoutResources />	
 	</head>
@@ -51,6 +53,7 @@
         <li><g:link controller="sales" action="list" >Sales</g:link></li>
         <li><g:link controller="medicineInventory" action="list" >Medicine Inventory</g:link></li>
         <li><g:link controller="feedsInventory" action="list" >Feeds Inventory</g:link></li>
+        <li><g:link controller="mortality" action="list" >Mortality</g:link></li>
         <li><g:link controller="bankTransaction" action="list" >Bank Transactions</g:link></li>
         <li><g:link controller="cashFlow" action="list" >Cash Flow</g:link></li>
         <li><g:link controller="priceSetting" action="list" >Price Setting</g:link></li>

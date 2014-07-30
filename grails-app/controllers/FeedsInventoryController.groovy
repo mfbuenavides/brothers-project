@@ -26,8 +26,8 @@ class FeedsInventoryController {
             return
         }
 
-        flash.message = message(code: 'default.created.message', args: [message(code: 'feedsInventory.label', default: 'FeedsInventory'), feedsInventoryInstance.id])
-        redirect(action: "show", id: feedsInventoryInstance.id)
+        flash.message = "Successfully added new feeds."
+        redirect(action: "list", params: params)
     }
 
     def show(Long id) {
@@ -77,8 +77,8 @@ class FeedsInventoryController {
             return
         }
 
-        flash.message = message(code: 'default.updated.message', args: [message(code: 'feedsInventory.label', default: 'FeedsInventory'), feedsInventoryInstance.id])
-        redirect(action: "show", id: feedsInventoryInstance.id)
+        flash.message = "Successfully updated feeds."
+        redirect(action: "list")
     }
 
     def delete(Long id) {
@@ -91,7 +91,7 @@ class FeedsInventoryController {
 
         try {
             feedsInventoryInstance.delete(flush: true)
-            flash.message = message(code: 'default.deleted.message', args: [message(code: 'feedsInventory.label', default: 'FeedsInventory'), id])
+            flash.message = "Successfully deleted feeds."
             redirect(action: "list")
         }
         catch (DataIntegrityViolationException e) {

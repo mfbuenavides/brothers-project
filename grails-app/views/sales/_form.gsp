@@ -7,7 +7,7 @@
 		<g:message code="sales.raiser.label" default="Raiser" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="raiser" name="raiser.id" from="${Raiser.list()}" optionKey="id" required="" value="${salesInstance?.raiser?.id}" class="many-to-one"/>
+	<g:select id="raiser" name="raiser.id" from="${Raiser.list()}" optionKey="id" optionValue="firstName" required="" value="${salesInstance?.raiser?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: salesInstance, field: 'dateSold', 'error')} required">
@@ -39,15 +39,7 @@
 		<g:message code="sales.amount.label" default="Amount" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="amount" value="${fieldValue(bean: salesInstance, field: 'amount')}" required=""/>
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: salesInstance, field: 'remarks', 'error')} ">
-	<label for="remarks">
-		<g:message code="sales.remarks.label" default="Remarks" />
-		
-	</label>
-	<g:textField name="remarks" maxlength="250" value="${salesInstance?.remarks}"/>
+	<g:field name="amount"  type="number" value="${fieldValue(bean: salesInstance, field: 'amount')}" required=""/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: salesInstance, field: 'hogScale', 'error')} required">
@@ -63,15 +55,7 @@
 		<g:message code="sales.price.label" default="Price" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="price" value="${fieldValue(bean: salesInstance, field: 'price')}" required=""/>
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: salesInstance, field: 'averageWeight', 'error')} required">
-	<label for="averageWeight">
-		<g:message code="sales.averageWeight.label" default="Average Weight" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:field name="averageWeight" value="${fieldValue(bean: salesInstance, field: 'averageWeight')}" required=""/>
+	<g:field name="price"  type="number" value="${fieldValue(bean: salesInstance, field: 'price')}" required=""/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: salesInstance, field: 'totalWeight', 'error')} required">
@@ -79,6 +63,21 @@
 		<g:message code="sales.totalWeight.label" default="Total Weight" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="totalWeight" value="${fieldValue(bean: salesInstance, field: 'totalWeight')}" required=""/>
+	<g:field name="totalWeight"  type="number" value="${fieldValue(bean: salesInstance, field: 'totalWeight')}" required=""/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: salesInstance, field: 'averageWeight', 'error')} required">
+	<label for="averageWeight">
+		<g:message code="sales.averageWeight.label" default="Average Weight" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:field name="averageWeight"  type="number" value="${fieldValue(bean: salesInstance, field: 'averageWeight')}" required=""/>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: salesInstance, field: 'remarks', 'error')} ">
+	<label for="remarks">
+		<g:message code="sales.remarks.label" default="Remarks" />
+		
+	</label>
+	<g:textField name="remarks" maxlength="250" value="${salesInstance?.remarks}"/>
+</div>

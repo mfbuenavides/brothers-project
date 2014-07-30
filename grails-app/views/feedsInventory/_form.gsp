@@ -7,7 +7,7 @@
 		<g:message code="feedsInventory.raiser.label" default="Raiser" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="raiser" name="raiser.id" from="${Raiser.list()}" optionKey="id" required="" value="${feedsInventoryInstance?.raiser?.id}" class="many-to-one"/>
+	<g:select id="raiser" name="raiser.id" from="${Raiser.list()}" optionKey="id" optionValue="firstName" required="" value="${feedsInventoryInstance?.raiser?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: feedsInventoryInstance, field: 'invoiceNumber', 'error')} required">
@@ -31,7 +31,7 @@
 		<g:message code="feedsInventory.quantity.label" default="Quantity" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="quantity" value="${fieldValue(bean: feedsInventoryInstance, field: 'quantity')}" required=""/>
+	<g:textField name="quantity" value="${fieldValue(bean: feedsInventoryInstance, field: 'quantity')}" required=""/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: feedsInventoryInstance, field: 'truckingPerBag', 'error')} required">
@@ -39,7 +39,7 @@
 		<g:message code="feedsInventory.truckingPerBag.label" default="Trucking Per Bag" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="truckingPerBag" value="${fieldValue(bean: feedsInventoryInstance, field: 'truckingPerBag')}" required=""/>
+	<g:textField name="truckingPerBag" value="${fieldValue(bean: feedsInventoryInstance, field: 'truckingPerBag')}" required=""/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: feedsInventoryInstance, field: 'price', 'error')} required">
@@ -47,7 +47,7 @@
 		<g:message code="feedsInventory.price.label" default="Price" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="price" value="${fieldValue(bean: feedsInventoryInstance, field: 'price')}" required=""/>
+	<g:textField name="price" value="${fieldValue(bean: feedsInventoryInstance, field: 'price')}" required=""/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: feedsInventoryInstance, field: 'amount', 'error')} required">
@@ -55,7 +55,7 @@
 		<g:message code="feedsInventory.amount.label" default="Amount" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="amount" value="${fieldValue(bean: feedsInventoryInstance, field: 'amount')}" required=""/>
+	<g:textField name="amount" value="${fieldValue(bean: feedsInventoryInstance, field: 'amount')}" required=""/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: feedsInventoryInstance, field: 'unit', 'error')} required">
@@ -79,6 +79,6 @@
 		<g:message code="feedsInventory.truckingCost.label" default="Trucking Cost" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="truckingCost" value="${fieldValue(bean: feedsInventoryInstance, field: 'truckingCost')}" required=""/>
+	<g:textField name="truckingCost" value="${fieldValue(bean: feedsInventoryInstance, field: 'truckingCost')}" required=""/>
 </div>
 
