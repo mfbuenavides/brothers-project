@@ -56,6 +56,8 @@
         <li><g:link controller="priceSetting" action="list" >Price Setting</g:link></li>
       </ul>
       
+      <g:link controller="logout" action="index" class="button tiny expand radius"> Logout </g:link>      
+      
       <p><img src="http://placehold.it/320x240&text=Ad"/></p>
         
     </div>
