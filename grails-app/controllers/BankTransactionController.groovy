@@ -1,5 +1,7 @@
 import org.springframework.dao.DataIntegrityViolationException
+import grails.plugins.springsecurity.Secured
 
+@Secured(['ROLE_ADMIN'])
 class BankTransactionController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
