@@ -23,8 +23,8 @@
 				<thead>
 					<tr>
 					
-						<th><g:message code="sales.raiser.label" default="Raiser" /></th>
-					
+						<g:sortableColumn property="raiser" title="${message(code: 'sales.raiser.label', default: 'Raiser')}" class="title"/>
+						
 						<g:sortableColumn property="dateSold" title="${message(code: 'sales.dateSold.label', default: 'Date Sold')}" class="title"/>
 					
 						<g:sortableColumn property="haulerName" title="${message(code: 'sales.haulerName.label', default: 'Hauler Name')}" class="title"/>

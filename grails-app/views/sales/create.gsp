@@ -31,4 +31,9 @@
 			</g:form>
 		</div>
 	</body>
+	<script>
+		jQuery("#totalWeight").blur(function(){
+			alert(jQuery("#totalWeight").val());
+		});
+	</script>
 </html>
