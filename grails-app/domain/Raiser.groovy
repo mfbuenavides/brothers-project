@@ -21,6 +21,6 @@ class Raiser {
     }
     
     public String getFullName(){
-    	return firstName
+    	return "${firstName} ${lastName}"
     }
 }
