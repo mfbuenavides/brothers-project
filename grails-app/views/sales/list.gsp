@@ -17,7 +17,7 @@
 		<div id="list-sales" class="content scaffold-list" role="main">
 			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div>
+			<div class="message info radius-misc" role="status">${flash.message}</div>
 			</g:if>
 			<table class="pricing-table">
 				<thead>
@@ -42,7 +42,7 @@
 				<g:each in="${salesInstanceList}" status="i" var="salesInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td>${fieldValue(bean: salesInstance, field: "raiser")}</td>
+						<td> ${salesInstance.raiser.firstName} ${salesInstance.raiser.lastName} </td>
 					
 						<td><g:formatDate format="MMM dd, yyyy" date="${salesInstance.dateSold}" /></td>
 					

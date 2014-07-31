@@ -7,7 +7,7 @@
 		<g:message code="sales.raiser.label" default="Raiser" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="raiser" name="raiser.id" from="${Raiser.list()}" optionKey="id" optionValue="firstName" required="" value="${salesInstance?.raiser?.id}" class="many-to-one"/>
+	<g:select id="raiser" name="raiser.id" from="${Raiser.list()}" optionKey="id" optionValue="${{it.getFullName()}}" required="" value="${salesInstance?.raiser?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: salesInstance, field: 'dateSold', 'error')} required">

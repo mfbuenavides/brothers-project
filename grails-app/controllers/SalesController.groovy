@@ -26,8 +26,8 @@ class SalesController {
             return
         }
 
-        flash.message = message(code: 'default.created.message', args: [message(code: 'sales.label', default: 'Sales'), salesInstance.id])
-        redirect(action: "show", id: salesInstance.id)
+        flash.message = "Successfully created new sales."
+        redirect(action: "list", params: params)
     }
 
     def show(Long id) {
@@ -77,8 +77,8 @@ class SalesController {
             return
         }
 
-        flash.message = message(code: 'default.updated.message', args: [message(code: 'sales.label', default: 'Sales'), salesInstance.id])
-        redirect(action: "show", id: salesInstance.id)
+        flash.message = "Successfully updated sales."
+        redirect(action: "list")
     }
 
     def delete(Long id) {
@@ -91,7 +91,7 @@ class SalesController {
 
         try {
             salesInstance.delete(flush: true)
-            flash.message = message(code: 'default.deleted.message', args: [message(code: 'sales.label', default: 'Sales'), id])
+            flash.message = "Successfully deleted sales."
             redirect(action: "list")
         }
         catch (DataIntegrityViolationException e) {
