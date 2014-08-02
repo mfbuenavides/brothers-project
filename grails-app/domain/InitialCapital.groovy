@@ -19,7 +19,7 @@ class InitialCapital {
 
 	static constraints = {
 		raiser nullable: false
-		priceSetting nullable: false
+		priceSetting nullable: true
 		pigSource nullable: true, blank: true, maxSize: 200
 		numberOfHeads nullable: false, blank: false
 		totalWeight nullable: false, blank: false
@@ -50,21 +50,11 @@ class InitialCapital {
 	}
 
 	def beforeInsert() {
-		priceSetting = PriceSetting.getLatestSettings()
-		
-		if (totalWeight > 10) {
-			def remainingKg = totalWeight - 10
-			grossAmount = ((10 * priceSetting.pricePerInitialTenKg) + (remainingKg * priceSetting.priceSucceedingKg))
-		} else {
-			grossAmount = totalWeight * priceSetting.pricePerInitialTenKg
-		}
+		priceSetting = new PriceSetting().getLatestSettings()
 
 		use (TimeCategory) {
 			expectedHaulDate = dateStarted + 105.days
 		}
-
-		netAmount = grossAmount + truckingExpenses
-		averagePrice = netAmount / numberOfHeads
 	}
 
 	def getAging() {

@@ -16,6 +16,8 @@ class BootStrap {
 	    raiserOne.save(flush: true, failOnError: true)
 	    raiserTwo.save(flush: true, failOnError: true)
 
+	    new PriceSetting(pricePerInitialTenKg: 10, priceSucceedingKg: 30).save(flush: true, failOnError: true)
+
 	    new MedicineInventory(name: 'Respisure(50 dose)', unit: 'cc', cost: 1700, quantity: 300, medicineType: MedicineType.BIOLOGICAL_VACCINE).save(flush: true, failOnError: true)
 		new MedicineInventory(name: 'Doxi-Colistin', cost: 700, quantity: 50, medicineType: MedicineType.WATER_MEDICATION).save(flush: true, failOnError: true)
 	    new MedicineInventory(name: 'Tiamulin', cost: 6800, quantity: 100, medicineType: MedicineType.FEED_MEDICATION).save(flush: true, failOnError: true)

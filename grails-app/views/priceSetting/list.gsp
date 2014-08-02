@@ -25,7 +25,7 @@
 					
 						<g:sortableColumn property="pricePerInitialTenKg" title="${message(code: 'priceSetting.pricePerInitialTenKg.label', default: 'Price Per Initial Ten Kg')}" class="title"/>
 					
-						<g:sortableColumn property="priceSuccceedingKg" title="${message(code: 'priceSetting.priceSuccceedingKg.label', default: 'Price Succceeding Kg')}" class="title"/>
+						<g:sortableColumn property="priceSucceedingKg" title="${message(code: 'priceSetting.priceSuccceedingKg.label', default: 'Price Succceeding Kg')}" class="title"/>
 					
 						<g:sortableColumn property="effectivityDate" title="${message(code: 'priceSetting.effectivityDate.label', default: 'Effectivity Date')}" class="title"/>
 					
@@ -38,7 +38,7 @@
 					
 						<td>${fieldValue(bean: priceSettingInstance, field: "pricePerInitialTenKg")}</td>
 					
-						<td>${fieldValue(bean: priceSettingInstance, field: "priceSuccceedingKg")}</td>
+						<td>${fieldValue(bean: priceSettingInstance, field: "priceSucceedingKg")}</td>
 					
 						<td><g:formatDate format="MMM dd, yyyy" date="${priceSettingInstance.effectivityDate}" /></td>
 					

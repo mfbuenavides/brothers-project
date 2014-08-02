@@ -5,6 +5,7 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'initialCapital.label', default: 'InitialCapital')}" />
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
+		<g:javascript src="form/update.js" />
 	</head>
 	<body>
 		<div class="nav" role="navigation">
@@ -27,8 +28,9 @@
 			</g:hasErrors>
 			<g:form action="save" >									
 					<g:render template="form"/>				
-					<g:submitButton name="create" class="save button radius" value="${message(code: 'default.button.create.label', default: 'Create')}" />				
+					<g:submitButton id="create" name="create" class="save button radius" disabled="true" value="${message(code: 'default.button.create.label', default: 'Create')}" />				
 			</g:form>
+					<a id="update-form" name="update-form" onclick="updateform(${priceSetting?.pricePerInitialTenKg}, ${priceSetting?.priceSucceedingKg})">Update Form</a>
 		</div>
 	</body>
 </html>

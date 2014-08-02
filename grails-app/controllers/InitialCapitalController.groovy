@@ -16,13 +16,21 @@ class InitialCapitalController {
     }
 
     def create() {
-        [initialCapitalInstance: new InitialCapital(params)]
+        def priceSetting = new PriceSetting().getLatestSettings()
+
+        if (!priceSetting) {
+            flash.error = "Please create a price setting first before creating an initial capital." 
+            redirect action: 'list'
+        } else {
+            [initialCapitalInstance: new InitialCapital(params), priceSetting: priceSetting]
+        }
     }
 
     def save() {
         def initialCapitalInstance = new InitialCapital(params)
+        def priceSetting = new PriceSetting().getLatestSettings()
         if (!initialCapitalInstance.save(flush: true)) {
-            render(view: "create", model: [initialCapitalInstance: initialCapitalInstance])
+            render(view: "create", model: [initialCapitalInstance: initialCapitalInstance, priceSetting: priceSetting])
             return
         }
 
@@ -43,16 +51,18 @@ class InitialCapitalController {
 
     def edit(Long id) {
         def initialCapitalInstance = InitialCapital.get(id)
+        def priceSetting = initialCapitalInstance.priceSetting
         if (!initialCapitalInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'initialCapital.label', default: 'InitialCapital'), id])
             redirect(action: "list")
             return
         }
 
-        [initialCapitalInstance: initialCapitalInstance]
+        [initialCapitalInstance: initialCapitalInstance, priceSetting: priceSetting]
     }
 
     def update(Long id, Long version) {
+        def priceSetting = new PriceSetting().getLatestSettings()
         def initialCapitalInstance = InitialCapital.get(id)
         if (!initialCapitalInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'initialCapital.label', default: 'InitialCapital'), id])
