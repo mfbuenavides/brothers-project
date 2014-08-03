@@ -17,15 +17,14 @@
 		<div id="list-initialCapital" class="content scaffold-list" role="main">
 			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
-				<div class="message" role="status">${flash.message}</div>
+				<div class="message info radius-misc" role="status">${flash.message}</div>
 			</g:if>
 			<table class="pricing-table">
 				<thead>
-					<tr>
+					<tr>					
+						<g:sortableColumn property="raiser" title="${message(code: 'initialCapital.raiser.label', default: 'Raiser')}" class="title"/>
 					
-						<th><g:message code="initialCapital.raiser.label" default="Raiser" /></th>
-					
-						<th><g:message code="initialCapital.priceSetting.label" default="Price Setting" /></th>
+						<g:sortableColumn property="priceSetting" title="${message(code: 'initialCapital.priceSetting.label', default: 'Price Setting')}" class="title"/>
 					
 						<g:sortableColumn property="pigSource" title="${message(code: 'initialCapital.pigSource.label', default: 'Pig Source')}" class="title"/>
 					
@@ -42,9 +41,11 @@
 				<g:each in="${initialCapitalInstanceList}" status="i" var="initialCapitalInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td>${fieldValue(bean: initialCapitalInstance, field: "raiser")}</td>
+						<td>${fieldValue(bean: initialCapitalInstance, field: "raiser.firstName")} 
+						${fieldValue(bean: initialCapitalInstance, field: "raiser.lastName")}</td>
 					
-						<td>${fieldValue(bean: initialCapitalInstance, field: "priceSetting")}</td>
+						<td>${fieldValue(bean: initialCapitalInstance, field: "priceSetting.pricePerInitialTenKg")} /
+						${fieldValue(bean: initialCapitalInstance, field: "priceSetting.priceSucceedingKg")} </td>
 					
 						<td>${fieldValue(bean: initialCapitalInstance, field: "pigSource")}</td>
 					

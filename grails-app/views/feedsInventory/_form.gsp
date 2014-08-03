@@ -7,7 +7,7 @@
 		<g:message code="feedsInventory.raiser.label" default="Raiser" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="raiser" name="raiser.id" from="${Raiser.list()}" optionKey="id" optionValue="firstName" required="" value="${feedsInventoryInstance?.raiser?.id}" class="many-to-one"/>
+	<g:select id="raiser" name="raiser.id" from="${Raiser.list()}" optionKey="id" optionValue="${{it.getFullName()}}" required="" value="${feedsInventoryInstance?.raiser?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: feedsInventoryInstance, field: 'invoiceNumber', 'error')} required">

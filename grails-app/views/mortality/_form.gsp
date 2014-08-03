@@ -7,7 +7,7 @@
 		<g:message code="mortality.raiser.label" default="Raiser" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="raiser" name="raiser.id" from="${Raiser.list()}" optionKey="id" required="" value="${mortalityInstance?.raiser?.id}" class="many-to-one"/>
+	<g:select id="raiser" name="raiser.id" from="${Raiser.list()}" optionKey="id" optionValue="${{it.getFullName()}}" required="" value="${mortalityInstance?.raiser?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: mortalityInstance, field: 'dateOfDeath', 'error')} required">
@@ -39,6 +39,7 @@
 		<g:message code="mortality.initialCapital.label" default="Initial Capital" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="initialCapital" name="initialCapital.id" from="${InitialCapital.list()}" optionKey="id" required="" value="${mortalityInstance?.initialCapital?.id}" class="many-to-one"/>
+	<g:select id="initialCapital" name="initialCapital.id" from="${InitialCapital.list()}" optionKey="id" optionValue="dateStarted" required="" value="${mortalityInstance?.initialCapital?.id}" class="many-to-one"/>
+	
 </div>
 

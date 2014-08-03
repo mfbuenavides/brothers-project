@@ -26,8 +26,8 @@ class MortalityController {
             return
         }
 
-        flash.message = message(code: 'default.created.message', args: [message(code: 'mortality.label', default: 'Mortality'), mortalityInstance.id])
-        redirect(action: "show", id: mortalityInstance.id)
+        flash.message = "Successfully saved new mortality."
+        redirect(action: "list", params: params)
     }
 
     def show(Long id) {
@@ -77,8 +77,8 @@ class MortalityController {
             return
         }
 
-        flash.message = message(code: 'default.updated.message', args: [message(code: 'mortality.label', default: 'Mortality'), mortalityInstance.id])
-        redirect(action: "show", id: mortalityInstance.id)
+        flash.message = "Successfully updated mortality."
+        redirect(action: "list")
     }
 
     def delete(Long id) {
@@ -91,7 +91,7 @@ class MortalityController {
 
         try {
             mortalityInstance.delete(flush: true)
-            flash.message = message(code: 'default.deleted.message', args: [message(code: 'mortality.label', default: 'Mortality'), id])
+            flash.message = "Successfully deleted mortality."
             redirect(action: "list")
         }
         catch (DataIntegrityViolationException e) {

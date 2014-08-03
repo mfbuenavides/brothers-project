@@ -17,13 +17,13 @@
 		<div id="list-mortality" class="content scaffold-list" role="main">
 			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div>
+			<div class="message info radius-misc" role="status">${flash.message}</div>
 			</g:if>
 			<table class="pricing-table">
 				<thead>
 					<tr>
 					
-						<th><g:message code="mortality.raiser.label" default="Raiser" /></th>
+						<g:sortableColumn property="raiser" title="${message(code: 'mortality.raiser.label', default: 'Raiser')}" class="title"/>
 					
 						<g:sortableColumn property="dateOfDeath" title="${message(code: 'mortality.dateOfDeath.label', default: 'Date Of Death')}" class="title"/>
 					
@@ -31,7 +31,7 @@
 					
 						<g:sortableColumn property="causeOfDeath" title="${message(code: 'mortality.causeOfDeath.label', default: 'Cause Of Death')}" class="title"/>
 					
-						<th><g:message code="mortality.initialCapital.label" default="Initial Capital" /></th>
+						<g:sortableColumn property="initialCapital" title="${message(code: 'mortality.initialCapital.label', default: 'Initial Capital')}" class="title"/>
 					
 					    <g:sortableColumn property="action" title="Action"  class="title"/>
 					</tr>
@@ -40,7 +40,8 @@
 				<g:each in="${mortalityInstanceList}" status="i" var="mortalityInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td>${fieldValue(bean: mortalityInstance, field: "raiser")}</td>
+						<td>${fieldValue(bean: mortalityInstance, field: "raiser.firstName")}
+						${fieldValue(bean: mortalityInstance, field: "raiser.lastName")} </td>
 					
 						<td><g:formatDate format="MMM dd, yyyy" date="${mortalityInstance.dateOfDeath}" /></td>
 					
@@ -48,7 +49,7 @@
 					
 						<td>${fieldValue(bean: mortalityInstance, field: "causeOfDeath")}</td>
 					
-						<td>${fieldValue(bean: mortalityInstance, field: "initialCapital")}</td>
+						<td><g:formatDate format="MMM dd, yyyy" date="${mortalityInstance.initialCapital.dateStarted}"/></td>
 					
 					<td> <g:link action="edit" id="${mortalityInstance.id}" class="button tiny radius" > View/Edit </g:link> </td>
 					</tr>

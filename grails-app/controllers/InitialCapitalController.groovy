@@ -34,8 +34,8 @@ class InitialCapitalController {
             return
         }
 
-        flash.message = message(code: 'default.created.message', args: [message(code: 'initialCapital.label', default: 'InitialCapital'), initialCapitalInstance.id])
-        redirect(action: "show", id: initialCapitalInstance.id)
+        flash.message = "Succesfully saved initial capital."
+        redirect(action: "list", params: params)
     }
 
     def show(Long id) {
@@ -87,8 +87,8 @@ class InitialCapitalController {
             return
         }
 
-        flash.message = message(code: 'default.updated.message', args: [message(code: 'initialCapital.label', default: 'InitialCapital'), initialCapitalInstance.id])
-        redirect(action: "show", id: initialCapitalInstance.id)
+        flash.message = "Successfully updated initial capital."
+        redirect(action: "list")
     }
 
     def delete(Long id) {
@@ -101,7 +101,7 @@ class InitialCapitalController {
 
         try {
             initialCapitalInstance.delete(flush: true)
-            flash.message = message(code: 'default.deleted.message', args: [message(code: 'initialCapital.label', default: 'InitialCapital'), id])
+            flash.message = "Successfully deleted initial capital."
             redirect(action: "list")
         }
         catch (DataIntegrityViolationException e) {

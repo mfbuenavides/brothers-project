@@ -3,7 +3,7 @@
 		<g:message code="initialCapital.raiser.label" default="Raiser" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="raiser" name="raiser.id" from="${Raiser.list()}" optionKey="id" optionValue="firstName" required="" value="${initialCapitalInstance?.raiser?.id}" class="many-to-one"/>
+	<g:select id="raiser" name="raiser.id" from="${Raiser.list()}" optionKey="id" optionValue="${{it.getFullName()}}" required="" value="${initialCapitalInstance?.raiser?.id}" class="many-to-one"/>
 </div>
 <div class="fieldcontain ${hasErrors(bean: initialCapitalInstance, field: 'pigSource', 'error')} ">
 	<label for="pigSource">
@@ -91,7 +91,7 @@
 	<g:datePicker name="expectedHaulDate" precision="day"  value="${initialCapitalInstance?.expectedHaulDate}"  />
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: initialCapitalInstance, field: 'mortalities', 'error')} ">
+<!--div class="fieldcontain ${hasErrors(bean: initialCapitalInstance, field: 'mortalities', 'error')} ">
 	<label for="mortalities">
 		<g:message code="initialCapital.mortalities.label" default="Mortalities" />
 		
@@ -104,7 +104,7 @@
 <li class="add">
 <g:link controller="mortality" action="create" params="['initialCapital.id': initialCapitalInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'mortality.label', default: 'Mortality')])}</g:link>
 </li>
-</ul>
+</ul-->
 
 </div>
 

@@ -26,11 +26,13 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
+			
+			
 			<g:form action="save" >									
 					<g:render template="form"/>				
 					<g:submitButton id="create" name="create" class="save button radius" disabled="true" value="${message(code: 'default.button.create.label', default: 'Create')}" />				
 			</g:form>
-					<a id="update-form" name="update-form" class="save button radius" onclick="updateform(${priceSetting?.pricePerInitialTenKg}, ${priceSetting?.priceSucceedingKg})">Update Form</a>
+			<a id="update-form" name="update-form" class="save button radius" onclick="updateform(${priceSetting?.pricePerInitialTenKg}, ${priceSetting?.priceSucceedingKg})">Update Form</a>		
 		</div>
 	</body>
 </html>
