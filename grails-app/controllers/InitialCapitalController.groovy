@@ -19,7 +19,7 @@ class InitialCapitalController {
         def priceSetting = new PriceSetting().getLatestSettings()
 
         if (!priceSetting) {
-            flash.error = "Please create a price setting first before creating an initial capital." 
+            flash.message = "Please create a price setting first before creating an initial capital." 
             redirect action: 'list'
         } else {
             [initialCapitalInstance: new InitialCapital(params), priceSetting: priceSetting]

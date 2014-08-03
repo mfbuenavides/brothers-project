@@ -94,3 +94,9 @@ log4j = {
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'Account'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'AccountRole'
 grails.plugins.springsecurity.authority.className = 'Role'
+
+// if (grails.util.GrailsUtil.environment != 'development'){
+//     grails.plugins.springsecurity.password.algorithm = 'bcrypt'
+//     grails.plugins.springsecurity.password.bcrypt.logrounds = 10
+// }
+

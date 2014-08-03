@@ -15,7 +15,7 @@
 		<g:message code="bankTransaction.bank.label" default="Bank" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select name="bank" from="${com.threebrothers.Bank?.values()}" keys="${com.threebrothers.Bank.values()*.name()}" required="" value="${bankTransactionInstance?.bank?.name()}"/>
+	<g:select name="bank" from="${com.threebrothers.Bank?.values().name}" keys="${com.threebrothers.Bank.values()*.name()}" required="" value="${bankTransactionInstance?.bank?.name()}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: bankTransactionInstance, field: 'transactionType', 'error')} required">

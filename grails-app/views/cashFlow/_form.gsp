@@ -39,7 +39,7 @@
 		<g:message code="cashFlow.source.label" default="Source" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select name="source" from="${com.threebrothers.PaymentSource?.values()}" keys="${com.threebrothers.PaymentSource.values()*.name()}" required="" value="${cashFlowInstance?.source?.name()}"/>
+	<g:select name="source" from="${com.threebrothers.PaymentSource?.values().name}" keys="${com.threebrothers.PaymentSource.values()*.name()}" required="" value="${cashFlowInstance?.source?.name()}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: cashFlowInstance, field: 'mode', 'error')} required">

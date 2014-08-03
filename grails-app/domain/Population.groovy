@@ -1,26 +1,30 @@
 class Population {
 
-	Raiser raiser
-	int numberOfPiglets
 	Date deliveryDate
-	String pigletSource
-
-	static hasMany = [mortalities: Mortality, sales: Sales]
+	InitialCapital initialCapital
 
 	static constraints = {
-		raiser nullable: false, blank: false
-		numberOfPiglets nullable: false, blank: false
+		initialCapital nullable: false
 		deliveryDate nullable: false, blank: false
-		pigletSource nullable: false, blank: false
-		mortalities nullable: true
-		sales nullable: true
 	}
 
 	static mapping = {
 		table 'population'
-		raiser column: 'raiser_id'
-		numberOfPiglets column: 'no_of_piglets'
+		initialCapital column: 'initial_capital_id'
 		deliveryDate column: 'delivery_date'
-		pigletSource column: 'piglet_source'
 	}
+
+	def getActualNumberOfPiglet() {
+		initialCapital.numberOfHeads - initialCapital.mortalities.size() - getNumberOfSales()
+	}
+
+	def getNumberOfSales() {
+		initialCapital.sales.quantity.sum()
+	}
+
+	//number of days as of today
+	//initialCapital.getAging()
+
+	//expecting haul date
+	//initialCapital.expectedHaulDate
 }

@@ -3,22 +3,16 @@ package com.threebrothers;
 /** Enum to represent the fingers used during data capturing and examinee authentication. */
 public enum MedicineType {
 
-    BIOLOGICAL_VACCINE,
-    WATER_MEDICATION,
-    FEED_MEDICATION,
-    INJECTABLE,
-    MISCELLANEOUS;
+    BIOLOGICAL_VACCINE("Biological Vaccine"),
+    WATER_MEDICATION("Water Medication"),
+    FEED_MEDICATION("Feed Medication"),
+    INJECTABLE("Injectable"),
+    MISCELLANEOUS("Miscellaneous");
 
-    public Object[] getArguments() {
-        return new Object[]{};
-    }
+    String name;
 
-    public String[] getCodes() {
-        return new String[]{ getClass().getName()+"."+name() };
-    }
-
-    public String getDefaultMessage() {
-        return name();
+    MedicineType(String name) {
+        this.name = name;
     }
 }
 

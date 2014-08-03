@@ -36,7 +36,7 @@
 					<g:actionSubmit class="delete  button radius" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" formnovalidate="" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 
 			</g:form>
-				<a id="update-form" name="update-form" onclick="updateform(${priceSetting?.pricePerInitialTenKg}, ${priceSetting?.priceSucceedingKg})">Update Form</a>
+				<a id="update-form" name="update-form" class="save button radius" onclick="updateform(${priceSetting?.pricePerInitialTenKg}, ${priceSetting?.priceSucceedingKg})">Update Form</a>
 		</div>
 	</body>
 </html>

@@ -39,6 +39,6 @@
 		<g:message code="medicineInventory.medicineType.label" default="Medicine Type" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select name="medicineType" from="${com.threebrothers.MedicineType?.values()}" keys="${com.threebrothers.MedicineType.values()*.name()}" required="" value="${medicineInventoryInstance?.medicineType?.name()}"/>
+	<g:select name="medicineType" from="${com.threebrothers.MedicineType?.values().name}" keys="${com.threebrothers.MedicineType.values()*.name()}" required="" value="${medicineInventoryInstance?.medicineType?.name()}"/>
 </div>
 
