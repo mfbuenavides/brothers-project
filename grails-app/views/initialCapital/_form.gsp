@@ -18,7 +18,7 @@
 		<g:message code="initialCapital.numberOfHeads.label" default="Number Of Heads" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field id="numberOfHeads" name="numberOfHeads" type="number" value="${initialCapitalInstance.numberOfHeads}" onkeypress="disablesave()" onchange="disablesave()" required=""/>
+	<g:field id="numberOfHeads" name="numberOfHeads" type="text" value="${initialCapitalInstance.numberOfHeads}" onkeypress="disablesave()" onchange="disablesave()" required=""/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: initialCapitalInstance, field: 'totalWeight', 'error')} required">
@@ -26,7 +26,7 @@
 		<g:message code="initialCapital.totalWeight.label" default="Total Weight" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field id="totalWeight" name="totalWeight" type="number" value="${fieldValue(bean: initialCapitalInstance, field: 'totalWeight')}" onkeypress="disablesave()" onchange="disablesave()" required="" />
+	<g:field id="totalWeight" name="totalWeight" type="text" value="${fieldValue(bean: initialCapitalInstance, field: 'totalWeight')}" onkeypress="disablesave()" onchange="disablesave()" required="" />
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: initialCapitalInstance, field: 'truckingExpenses', 'error')} required">
@@ -34,7 +34,7 @@
 		<g:message code="initialCapital.truckingExpenses.label" default="Trucking Expenses" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field id="truckingExpenses" name="truckingExpenses" type="number"  value="${fieldValue(bean: initialCapitalInstance, field: 'truckingExpenses')}" onkeypress="disablesave()" onchange="disablesave()" required=""/>
+	<g:field id="truckingExpenses" name="truckingExpenses" type="text"  value="${fieldValue(bean: initialCapitalInstance, field: 'truckingExpenses')}" onkeypress="disablesave()" onchange="disablesave()" required=""/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: initialCapitalInstance, field: 'dateStarted', 'error')} required">
@@ -50,7 +50,7 @@
 		<g:message code="initialCapital.grossAmount.label" default="Gross Amount" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field id="grossAmount" readonly="readonly" name="grossAmount" type="number"  value="${fieldValue(bean: initialCapitalInstance, field: 'grossAmount')}" required=""/>
+	<g:field id="grossAmount" readonly="readonly" name="grossAmount" type="text"  value="${fieldValue(bean: initialCapitalInstance, field: 'grossAmount')}" required=""/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: initialCapitalInstance, field: 'averageWeight', 'error')} required">
@@ -58,21 +58,21 @@
 		<g:message code="initialCapital.averageWeight.label" default="Average Weight" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field id="averageWeight" name="averageWeight" type="number" readonly="readonly" value="${fieldValue(bean: initialCapitalInstance, field: 'averageWeight')}" required=""/>
+	<g:field id="averageWeight" name="averageWeight" type="text" readonly="readonly" value="${fieldValue(bean: initialCapitalInstance, field: 'averageWeight')}" required=""/>
 </div>%{-- 
 <div class="fieldcontain ${hasErrors(bean: initialCapitalInstance, field: 'netAmount', 'error')} required">
 	<label for="netAmount">
 		<g:message code="initialCapital.netAmount.label" default="Net Amount" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field id="netAmount" name="netAmount" readonly="readonly" type="number"  value="${fieldValue(bean: initialCapitalInstance, field: 'netAmount')}" required=""/>
+	<g:field id="netAmount" name="netAmount" readonly="readonly" type="text"  value="${fieldValue(bean: initialCapitalInstance, field: 'netAmount')}" required=""/>
 </div> --}%
 <div class="fieldcontain ${hasErrors(bean: initialCapitalInstance, field: 'netAmount', 'error')} required">
 	<label for="netAmount">
 		<g:message code="initialCapital.netAmount.label" default="Net Amount" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field id="netAmount" name="netAmount" type="number" readonly="readonly" value="${fieldValue(bean: initialCapitalInstance, field: 'netAmount')}" required=""/>
+	<g:field id="netAmount" name="netAmount" type="text" readonly="readonly" value="${fieldValue(bean: initialCapitalInstance, field: 'netAmount')}" required=""/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: initialCapitalInstance, field: 'averagePrice', 'error')} required">
@@ -80,7 +80,7 @@
 		<g:message code="initialCapital.averagePrice.label" default="Average Price" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field id="averagePrice" name="averagePrice" readonly="readonly" 	type="number"  value="${fieldValue(bean: initialCapitalInstance, field: 'averagePrice')}" required=""/>
+	<g:field id="averagePrice" name="averagePrice" readonly="readonly" 	type="text"  value="${fieldValue(bean: initialCapitalInstance, field: 'averagePrice')}" required=""/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: initialCapitalInstance, field: 'expectedHaulDate', 'error')} required">

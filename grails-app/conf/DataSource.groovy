@@ -19,12 +19,12 @@ environments {
             dialect = 'org.hibernate.dialect.MySQLDialect'
             logSql = true
             username = 'root' // do not change settings
-            password = 'password' // do not change settings
+            password = '' // do not change settings
         }
     }
     test {
         dataSource {
-            dbCreate = 'update' // for mock testing purposes only
+            dbCreate = 'create-drop' // for mock testing purposes only
             jndiName = "java:comp/env/jdbc/tbasdb"
             pooled = true
             logSql = false

@@ -23,7 +23,7 @@
 		<g:message code="medicineInventory.cost.label" default="Cost" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="cost" type="number" value="${fieldValue(bean: medicineInventoryInstance, field: 'cost')}" required=""/>
+	<g:field name="cost" type="text" value="${fieldValue(bean: medicineInventoryInstance, field: 'cost')}" required=""/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: medicineInventoryInstance, field: 'quantity', 'error')} required">
@@ -31,7 +31,7 @@
 		<g:message code="medicineInventory.quantity.label" default="Quantity" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="quantity" type="number"  value="${fieldValue(bean: medicineInventoryInstance, field: 'quantity')}" required=""/>
+	<g:field name="quantity" type="text"  value="${fieldValue(bean: medicineInventoryInstance, field: 'quantity')}" required=""/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: medicineInventoryInstance, field: 'medicineType', 'error')} required">

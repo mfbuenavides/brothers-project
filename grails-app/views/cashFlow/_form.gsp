@@ -15,7 +15,7 @@
 		<g:message code="cashFlow.amount.label" default="Amount" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="amount" type="number" value="${fieldValue(bean: cashFlowInstance, field: 'amount')}" required=""/>
+	<g:field name="amount" type="text" value="${fieldValue(bean: cashFlowInstance, field: 'amount')}" required=""/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: cashFlowInstance, field: 'paidTo', 'error')} required">

@@ -11,8 +11,14 @@ class BootStrap {
 
     	def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
 
-    	def adminAccount = new Account(username: 'admin', enabled: true, password: 'admin')
-	    adminAccount.save(flush: true)
+    	String password = 'admin'
+
+    	if (grails.util.GrailsUtil.environment == 'test') 
+    		password = 'annamariepassword'
+
+    	def adminAccount = new Account(username: 'admin', enabled: true, password: password)
+	    
+		adminAccount.save(flush: true)
 
 	    AccountRole.create adminAccount, adminRole, true
 

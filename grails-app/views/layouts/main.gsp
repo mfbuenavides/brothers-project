@@ -57,6 +57,7 @@
         <li><g:link controller="bankTransaction" action="list" >Bank Transactions</g:link></li>
         <li><g:link controller="cashFlow" action="list" >Cash Flow</g:link></li>
         <li><g:link controller="priceSetting" action="list" >Price Setting</g:link></li>
+        <li><g:link controller="weighingScale" action="index">Weighing Scale</g:link></li>
       </ul>
       
       <g:link controller="logout" action="index" class="button tiny expand radius"> Logout </g:link>      
