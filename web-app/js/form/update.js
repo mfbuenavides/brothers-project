@@ -43,3 +43,17 @@ function updateform(initprice, exceedprice) {
 function disablesave() {
 	document.getElementById("create").disabled = true;
 }
+
+function displayfield(expense) {
+	console.log("on load");
+	if (expense == 'OTHERS') {
+		document.getElementById("hide-div").style.display = 'block';
+	} else {
+		document.getElementById("hide-div").style.display = 'none';
+		document.getElementById("otherExpenses").value = "";
+	}
+}
+
+function loadsample() {
+	console.log("LOG HERE.");
+}

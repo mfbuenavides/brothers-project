@@ -40,11 +40,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${cashFlowInstance?.paidTo}">
+				<g:if test="${cashFlowInstance?.paidFor}">
 				<li class="fieldcontain">
-					<span id="paidTo-label" class="property-label"><g:message code="cashFlow.paidTo.label" default="Paid To" /></span>
+					<span id="paidFor-label" class="property-label"><g:message code="cashFlow.paidFor.label" default="Paid For" /></span>
 					
-						<span class="property-value" aria-labelledby="paidTo-label"><g:fieldValue bean="${cashFlowInstance}" field="paidTo"/></span>
+						<span class="property-value" aria-labelledby="paidFor-label"><g:fieldValue bean="${cashFlowInstance}" field="paidFor"/></span>
 					
 				</li>
 				</g:if>

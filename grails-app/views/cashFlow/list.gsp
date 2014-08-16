@@ -5,7 +5,7 @@
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'cashFlow.label', default: 'CashFlow')}" />
-		<title> Cash Flow List </title>
+		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
 		<div class="nav" role="navigation">
@@ -15,9 +15,9 @@
 			</ul>
 		</div>
 		<div id="list-cashFlow" class="content scaffold-list" role="main">
-			<h1> Cash Flow List </h1>
+			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
-			<div class="message info radius-misc" role="status">${flash.message}</div>
+			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 			<table class="pricing-table">
 				<thead>
@@ -27,7 +27,7 @@
 					
 						<g:sortableColumn property="amount" title="${message(code: 'cashFlow.amount.label', default: 'Amount')}" class="title"/>
 					
-						<g:sortableColumn property="paidTo" title="${message(code: 'cashFlow.paidTo.label', default: 'Paid To')}" class="title"/>
+						<g:sortableColumn property="paidFor" title="${message(code: 'cashFlow.paidFor.label', default: 'Paid For')}" class="title"/>
 					
 						<g:sortableColumn property="remarks" title="${message(code: 'cashFlow.remarks.label', default: 'Remarks')}" class="title"/>
 					
@@ -42,17 +42,17 @@
 				<g:each in="${cashFlowInstanceList}" status="i" var="cashFlowInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td> <g:formatDate format="MMM dd, yyyy"  date="${cashFlowInstance.transactionDate}" /></td>
+						<td>${fieldValue(bean: cashFlowInstance, field: "transactionDate")}</td>
 					
 						<td>${fieldValue(bean: cashFlowInstance, field: "amount")}</td>
 					
-						<td>${fieldValue(bean: cashFlowInstance, field: "paidTo")}</td>
+						<td>${fieldValue(bean: cashFlowInstance, field: "paidFor.name")}</td>
 					
 						<td>${fieldValue(bean: cashFlowInstance, field: "remarks")}</td>
 					
-						<td>${fieldValue(bean: cashFlowInstance, field: "source")}</td>
+						<td>${fieldValue(bean: cashFlowInstance, field: "source.name")}</td>
 					
-						<td>${fieldValue(bean: cashFlowInstance, field: "mode")}</td>
+						<td>${fieldValue(bean: cashFlowInstance, field: "mode.name")}</td>
 					
 					<td> <g:link action="edit" id="${cashFlowInstance.id}" class="button tiny radius" > View/Edit </g:link> </td>
 					</tr>

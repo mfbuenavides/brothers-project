@@ -16,7 +16,7 @@ class CashFlowController {
     }
 
     def create() {
-        [cashFlowInstance: new CashFlow(params)]
+        [cashFlowInstance: new CashFlow(params), otherExpensesNull: true]
     }
 
     def save() {
@@ -49,7 +49,9 @@ class CashFlowController {
             return
         }
 
-        [cashFlowInstance: cashFlowInstance]
+        boolean otherExpensesNull = (cashFlowInstance.otherExpenses == '' || cashFlowInstance.otherExpenses == null) ? true : false 
+
+        [cashFlowInstance: cashFlowInstance, otherExpensesNull: otherExpensesNull]
     }
 
     def update(Long id, Long version) {

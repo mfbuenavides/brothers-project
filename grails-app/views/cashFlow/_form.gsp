@@ -1,7 +1,4 @@
-
-
-
-
+<g:javascript src="form/update.js" />
 <div class="fieldcontain ${hasErrors(bean: cashFlowInstance, field: 'transactionDate', 'error')} required">
 	<label for="transactionDate">
 		<g:message code="cashFlow.transactionDate.label" default="Transaction Date" />
@@ -15,16 +12,35 @@
 		<g:message code="cashFlow.amount.label" default="Amount" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="amount" type="text" value="${fieldValue(bean: cashFlowInstance, field: 'amount')}" required=""/>
+	<g:field name="amount" value="${fieldValue(bean: cashFlowInstance, field: 'amount')}" required=""/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: cashFlowInstance, field: 'paidTo', 'error')} required">
-	<label for="paidTo">
-		<g:message code="cashFlow.paidTo.label" default="Paid To" />
+<div class="fieldcontain ${hasErrors(bean: cashFlowInstance, field: 'paidFor', 'error')} required">
+	<label for="paidFor">
+		<g:message code="cashFlow.paidFor.label" default="Paid For" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="paidTo" required="" value="${cashFlowInstance?.paidTo}"/>
+	<g:select id="paidFor" name="paidFor" from="${com.threebrothers.OperatingExpenses?.values().name}" keys="${com.threebrothers.OperatingExpenses.values()*.name()}" required="" value="${cashFlowInstance?.paidFor?.name()}" onchange="displayfield(this.value)" />
 </div>
+
+<!-- hideen text field -->
+<g:if test="${otherExpensesNull}">
+	<div id="hide-div" class="fieldcontain ${hasErrors(bean: cashFlowInstance, field: 'remarks', 'error')}" style="display:none">
+		<label for="otherExpenses">
+			<g:message code="cashFlow.remarks.label" default="Other Expenses" />	
+		</label>
+		<g:textField id="otherExpenses" name="otherExpenses" value="${cashFlowInstance?.otherExpenses}" />
+	</div>
+</g:if>
+<g:else>
+	<div id="hide-div" class="fieldcontain ${hasErrors(bean: cashFlowInstance, field: 'remarks', 'error')}" >
+		<label for="otherExpenses">
+			<g:message code="cashFlow.remarks.label" default="Other Expenses" />	
+		</label>
+		<g:textField id="otherExpenses" name="otherExpenses" value="${cashFlowInstance?.otherExpenses}" />
+	</div>
+</g:else>
+
 
 <div class="fieldcontain ${hasErrors(bean: cashFlowInstance, field: 'remarks', 'error')} ">
 	<label for="remarks">
@@ -47,6 +63,6 @@
 		<g:message code="cashFlow.mode.label" default="Mode" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select name="mode" from="${com.threebrothers.PaymentMode?.values()}" keys="${com.threebrothers.PaymentMode.values()*.name()}" required="" value="${cashFlowInstance?.mode?.name()}"/>
+	<g:select name="mode" from="${com.threebrothers.PaymentMode?.values().name}" keys="${com.threebrothers.PaymentMode.values()*.name()}" required="" value="${cashFlowInstance?.mode?.name()}"/>
 </div>
-
+ 

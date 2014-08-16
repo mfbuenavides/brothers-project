@@ -48,7 +48,7 @@
 					
 						<td>${fieldValue(bean: medicineInventoryInstance, field: "quantity")}</td>
 					
-						<td>${fieldValue(bean: medicineInventoryInstance, field: "medicineType")}</td>
+						<td>${fieldValue(bean: medicineInventoryInstance, field: "medicineType.name")}</td>
 					
 					<td> <g:link action="edit" id="${medicineInventoryInstance.id}" class="button tiny radius" > View/Edit </g:link> </td>
 					</tr>
