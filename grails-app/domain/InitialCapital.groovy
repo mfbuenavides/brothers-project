@@ -63,4 +63,9 @@ class InitialCapital {
 			(new Date() - dateStarted).getDays() 
 		}
 	}
+
+	def getRemainingHogs() {
+		if (this?.sales)
+			numberOfHeads - this.sales.sum { it.quantity }
+	}
 }

@@ -42,9 +42,9 @@
 					
 						<td> <g:formatDate format="MMM dd, yyyy" date="${bankTransactionInstance.date}" /></td>
 					
-						<td>${fieldValue(bean: bankTransactionInstance, field: "bank")}</td>
+						<td>${fieldValue(bean: bankTransactionInstance, field: "bank.name")}</td>
 					
-						<td>${fieldValue(bean: bankTransactionInstance, field: "transactionType")}</td>
+						<td>${fieldValue(bean: bankTransactionInstance, field: "transactionType.name")}</td>
 					
 						<td>${fieldValue(bean: bankTransactionInstance, field: "balance")}</td>
 					

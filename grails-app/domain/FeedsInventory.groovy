@@ -1,5 +1,8 @@
+import com.threebrothers.FeedsType
+
 class FeedsInventory {
 
+	FeedsType feedsType
 	Raiser raiser
 	String invoiceNumber
 	Date date
@@ -12,6 +15,7 @@ class FeedsInventory {
 	String description
 
 	static constraints = {
+		feedsType nullable: false, blank: false
 		raiser nullable: false, blank: false
 		invoiceNumber nullable: false, blank: false, maxSize: 50
 		date nullable: false, blank: false
@@ -25,6 +29,7 @@ class FeedsInventory {
 
 	static mapping = {
 		table 'feeds_inventory'
+		feedsType column: 'feeds_type'
 		raiser column: 'raiser_id'
 		invoiceNumber column: 'invoice_no'
 		date column: 'date'

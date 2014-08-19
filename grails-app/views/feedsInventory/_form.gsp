@@ -10,6 +10,14 @@
 	<g:select id="raiser" name="raiser.id" from="${Raiser.list()}" optionKey="id" optionValue="${{it.getFullName()}}" required="" value="${feedsInventoryInstance?.raiser?.id}" class="many-to-one"/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: feedsInventoryInstance, field: 'medicineType', 'error')} required">
+	<label for="medicineType">
+		<g:message code="medicineInventory.feedsType.label" default="Feeds Type" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select name="feedsType" from="${com.threebrothers.FeedsType?.values().name}" keys="${com.threebrothers.FeedsType.values()*.name()}" required="" value="${feedsInventoryInstance?.feedsType?.name()}"/>
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: feedsInventoryInstance, field: 'invoiceNumber', 'error')} required">
 	<label for="invoiceNumber">
 		<g:message code="feedsInventory.invoiceNumber.label" default="Invoice Number" />

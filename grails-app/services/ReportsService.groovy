@@ -6,7 +6,7 @@ class ReportsService {
 
 	def generateReport(ReportType reportType, Date startDate, Date endDate) {
 
-		List data = []
+		def data
 
 		switch(reportType) {
 			case ReportType.SALES:
@@ -34,8 +34,31 @@ class ReportsService {
 												p.initialCapital.expectedHaulDate >= :start and p.initialCapital.expectedHaulDate <= :end)""", 
 												[start: startDate, end: endDate])				
 			break
+
+			case ReportType.FINANCIAL_STATEMENT:
+				data =[:]
+				Map salesCost = [:]
+				Map otherExpenses = [:]
+
+				//query sales cost logic here
+				def salesData = Sales.executeQuery('select s from Sales s where s.dateSold >=:start and s.dateSold <=:end',[start: startDate, end: endDate])
+
+				//other expenses data
+				def cashFlowData = CashFlow.executeQuery('select cf from CashFlow cf where cf.transactionDate >= :start and cf.transactionDate <= :end', 
+												[start: startDate, end: endDate])
+
+				//put into map
+				cashFlowData.each {
+					if (OperatingExpenses.OTHERS == it.paidFor) {
+						otherExpenses << [item: it.otherExpenses, amount: it.amount]
+					} else 
+						otherExpenses << [item: it.paidFor.name, amount: it.amount]
+				}
+
+				data << otherExpenses
+			break
 		}
-		
+
 		data
 	}
 

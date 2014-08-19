@@ -150,7 +150,14 @@ class BootStrap {
 
 		bankTx_1.save(flush:true, failOnError: true)
 		bankTx_2.save(flush:true, failOnError: true)
-/*
+
+		def med_1 = new MedicineInventory(name: 'HCV (MVP)', unit: 'dose', cost: 1200, quantity: 50, medicineType: MedicineType.BIOLOGICAL_VACCINE)
+		def med_2 = new MedicineInventory(name: 'AMOXICILLIN', unit: 'kg', cost: 3020, quantity: 20, medicineType: MedicineType.WATER_MEDICATION)
+		
+		med_1.save(flush:true, failOnError: true)
+		med_2.save(flush: true, failOnError: true)
+			
+/*	
 		def cashFlow_1 = new CashFlow(transactionDate: new Date(), amount: 3000, paidTo: 'Shell', remarks: 'gasoline', source: PaymentSource.VAULT, mode: PaymentMode.CASH)
 		def cashFlow_2 = new CashFlow(transactionDate: new Date(), amount: 6000, paidTo: 'Meralco', remarks: 'electric bill', source: PaymentSource.AUB, mode: PaymentMode.CHECK)
 
