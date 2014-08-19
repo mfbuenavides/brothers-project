@@ -19,7 +19,7 @@ environments {
             dialect = 'org.hibernate.dialect.MySQLDialect'
             logSql = true
             username = 'root' // do not change settings
-            password = '' // do not change settings
+            password = 'password' // do not change settings
         }
     }
     test {
