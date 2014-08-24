@@ -6,6 +6,15 @@ class SalesController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
+    def sample = {
+        def salesData = Sales.getAll()
+        
+        println "DEBUG| ${salesData.initialCapital.feedsInventory.flatten()}"
+        double feedsCost = salesData ? salesData.initialCapital.unique().feedsInventory.unique().flatten().sum { it.amount } : null
+
+        println feedsCost
+    }
+
     def index() {
         redirect(action: "list", params: params)
     }
@@ -21,6 +30,7 @@ class SalesController {
 
     def save() {
         def salesInstance = new Sales(params)
+        println "DEBUG| SAVING SALES INSTANCE"
         if (!salesInstance.save(flush: true)) {
             render(view: "create", model: [salesInstance: salesInstance])
             return

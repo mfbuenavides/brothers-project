@@ -15,7 +15,7 @@ class InitialCapital {
 	Date dateStarted
 	Date expectedHaulDate
 	
-	static hasMany = [mortalities: Mortality, sales: Sales]
+	static hasMany = [mortalities: Mortality, sales: Sales, feedsInventory: FeedsInventory]
 
 	static constraints = {
 		raiser nullable: false
@@ -32,6 +32,7 @@ class InitialCapital {
 		expectedHaulDate nullable: false, blank: false
 		mortalities nullable: true
 		sales nullable: true
+		feedsInventory nullable: true
 	}
 
 	static mapping = {

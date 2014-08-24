@@ -11,6 +11,8 @@ class Sales {
 	double averageWeight
 	int hogScale
 
+	static belongsTo = [initialCapital: InitialCapital]
+
 	static constraints = {
 		raiser nullable: false, blank: false
 		dateSold nullable: false, blank: false

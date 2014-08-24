@@ -37,7 +37,6 @@ class ReportsService {
 
 			case ReportType.FINANCIAL_STATEMENT:
 				data =[:]
-				Map salesCost = [:]
 				Map otherExpenses = [:]
 
 				//query sales cost logic here
@@ -47,14 +46,31 @@ class ReportsService {
 				def cashFlowData = CashFlow.executeQuery('select cf from CashFlow cf where cf.transactionDate >= :start and cf.transactionDate <= :end', 
 												[start: startDate, end: endDate])
 
-				//put into map
+				//pending piglet cost for sales price
+				double pigletCost = salesData ? salesData.initialCapital.unique().sum { it.netAmount } : null 
+				double totalSales = salesData ? salesData.sum { it.amount } : null
+				double truckingExpenses = salesData ? salesData.initialCapital.unique().sum { it.truckingExpenses } : null
+				double feedsCost = salesData ? salesData.initialCapital.unique().feedsInventory.unique().flatten().sum { it.amount } : null
+				double medCost = salesData ? salesData.initialCapital.unique().medicineInventory.unique().flatten().sum { it.cost } : null
+
+				//put sales cost into map
+				Map salesCost = [
+					pigletCost: pigletCost,
+					totalSales: totalSales,
+					truckingExpenses: truckingExpenses,
+					feedsCost: feedsCost,
+					medicineCost: medCost
+				]
+
+				//put other expenses into map
 				cashFlowData.each {
 					if (OperatingExpenses.OTHERS == it.paidFor) {
 						otherExpenses << [item: it.otherExpenses, amount: it.amount]
 					} else 
 						otherExpenses << [item: it.paidFor.name, amount: it.amount]
 				}
-
+				
+				data << salesCost
 				data << otherExpenses
 			break
 		}

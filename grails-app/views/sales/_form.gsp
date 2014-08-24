@@ -10,6 +10,14 @@
 	<g:select id="raiser" name="raiser.id" from="${Raiser.list()}" optionKey="id" optionValue="${{it.getFullName()}}" required="" value="${salesInstance?.raiser?.id}" class="many-to-one"/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: salesIntance, field: 'initialCapital', 'error')} required">
+	<label for="initialCapital">
+		<g:message code="sales.initialCapital.label" default="Initial Capital" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="initialCapital" name="initialCapital.id" from="${InitialCapital.list()}" optionKey="id" optionValue="dateStarted" required="" value="${salesIntance?.initialCapital?.id}" class="many-to-one"/>
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: salesInstance, field: 'dateSold', 'error')} required">
 	<label for="dateSold">
 		<g:message code="sales.dateSold.label" default="Date Sold" />

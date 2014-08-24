@@ -14,6 +14,8 @@ class FeedsInventory {
 	String unit
 	String description
 
+	static belongsTo = [initialCapital: InitialCapital]
+
 	static constraints = {
 		feedsType nullable: false, blank: false
 		raiser nullable: false, blank: false

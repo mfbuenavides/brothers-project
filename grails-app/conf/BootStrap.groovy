@@ -85,6 +85,7 @@ class BootStrap {
 		    					)
 		}
 
+		/*
 		def sales_1 = new Sales (
 							raiser: raiser_1, 
 							dateSold: Date.parse('yyyy-MM-dd', '2014-08-01'), 
@@ -116,7 +117,7 @@ class BootStrap {
 
 		initCapital_3.addToSales(sales_1)
 		initCapital_3.addToSales(sales_2)
-		
+		*/
 		initCapital_1.save(flush: true, failOnError: true)
 		initCapital_2.save(flush: true, failOnError: true)
 		initCapital_3.save(flush: true, failOnError: true)
