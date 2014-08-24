@@ -23,7 +23,6 @@
 	<g:select id="paidFor" name="paidFor" from="${com.threebrothers.OperatingExpenses?.values().name}" keys="${com.threebrothers.OperatingExpenses.values()*.name()}" required="" value="${cashFlowInstance?.paidFor?.name()}" onchange="displayfield(this.value)" />
 </div>
 
-<!-- hideen text field -->
 <g:if test="${otherExpensesNull}">
 	<div id="hide-div" class="fieldcontain ${hasErrors(bean: cashFlowInstance, field: 'remarks', 'error')}" style="display:none">
 		<label for="otherExpenses">

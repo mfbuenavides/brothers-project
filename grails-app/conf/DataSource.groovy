@@ -17,7 +17,7 @@ environments {
             url = 'jdbc:mysql://localhost:3306/tbasdb'
             driverClassName = 'com.mysql.jdbc.Driver'
             dialect = 'org.hibernate.dialect.MySQLDialect'
-            logSql = false
+            logSql = true
             username = 'root' // do not change settings
             password = 'password' // do not change settings
         }
