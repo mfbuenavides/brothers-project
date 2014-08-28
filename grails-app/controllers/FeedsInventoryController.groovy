@@ -6,26 +6,6 @@ class FeedsInventoryController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
-    def sample = {
-        def initCapital = InitialCapital.get(1)
-        def indiCost = IndividualCost.findOrCreateWhere(initialCapital: initCapital, arNumber: '739402034')
-        indiCost.save(flush: true)
-
-        def indiCost_1 = IndividualCost.findOrCreateWhere(initialCapital: initCapital, arNumber: '343787483')
-        indiCost_1.save(flush: true)
-
-        def feeds = FeedsInventory.get(1)
-
-        def indiFeeds = IndividualFeeds.findOrCreateWhere(feedsInventory: feeds, individualCost: indiCost, quantity: 100.toDouble())
-        indiFeeds.save(flush: true, failOnError: true)
-
-        def indiFeeds_2 = IndividualFeeds.findOrCreateWhere(feedsInventory: feeds, individualCost: indiCost, quantity: 300.toDouble())
-        indiFeeds_2.save(flush: true, failOnError: true)
-
-        println "DEBUG| feeds quantity: ${feeds.getRemainingAmount()}"
-        render 'check console'
-    }
-
     def index() {
         redirect(action: "list", params: params)
     }
