@@ -24,4 +24,9 @@ class MedicineInventory {
     	quantity column: 'qty'
     	medicineType column: 'medicine_type'
     }
+
+    def getRemainingAmount() {
+        def consumedAmount = IndividualMedicine.findAllWhere(medicineInventory: this)?.sum { it.quantity }
+        quantity - consumedAmount
+    }
 }

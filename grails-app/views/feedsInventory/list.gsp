@@ -23,8 +23,6 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="raiser" title="${message(code: 'feedsInventory.raiser.label', default: 'Raiser')}" class="title"/>
-						
 						<g:sortableColumn property="invoiceNumber" title="${message(code: 'feedsInventory.invoiceNumber.label', default: 'Invoice Number')}" class="title"/>
 					
 						<g:sortableColumn property="date" title="${message(code: 'feedsInventory.date.label', default: 'Date')}" class="title"/>
@@ -41,8 +39,6 @@
 				<tbody>
 				<g:each in="${feedsInventoryInstanceList}" status="i" var="feedsInventoryInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
-						<td>${fieldValue(bean: feedsInventoryInstance, field: "raiser.firstName")} ${fieldValue(bean: feedsInventoryInstance, field: "raiser.lastName")}</td>
 					
 						<td>${fieldValue(bean: feedsInventoryInstance, field: "invoiceNumber")}</td>
 					

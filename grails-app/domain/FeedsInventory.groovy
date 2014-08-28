@@ -3,7 +3,6 @@ import com.threebrothers.FeedsType
 class FeedsInventory {
 
 	FeedsType feedsType
-	Raiser raiser
 	String invoiceNumber
 	Date date
 	double quantity
@@ -14,11 +13,8 @@ class FeedsInventory {
 	String unit
 	String description
 
-	static belongsTo = [initialCapital: InitialCapital]
-
 	static constraints = {
 		feedsType nullable: false, blank: false
-		raiser nullable: false, blank: false
 		invoiceNumber nullable: false, blank: false, maxSize: 50
 		date nullable: false, blank: false
 		quantity nullable: false, blank: false
@@ -32,7 +28,6 @@ class FeedsInventory {
 	static mapping = {
 		table 'feeds_inventory'
 		feedsType column: 'feeds_type'
-		raiser column: 'raiser_id'
 		invoiceNumber column: 'invoice_no'
 		date column: 'date'
 		quantity column: 'qty'
@@ -47,5 +42,10 @@ class FeedsInventory {
 	def beforeInsert() {
 		truckingCost = truckingPerBag * quantity
 		amount = truckingCost + (quantity * price)
+	}
+
+	def getRemainingAmount() {
+		def consumedAmount = IndividualFeeds.findAllWhere(feedsInventory: this)?.sum { it.quantity }
+		quantity - consumedAmount
 	}
 }

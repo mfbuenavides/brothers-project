@@ -1,24 +1,3 @@
-
-
-
-
-<div class="fieldcontain ${hasErrors(bean: feedsInventoryInstance, field: 'raiser', 'error')} required">
-	<label for="raiser">
-		<g:message code="feedsInventory.raiser.label" default="Raiser" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="raiser" name="raiser.id" from="${Raiser.list()}" optionKey="id" optionValue="${{it.getFullName()}}" required="" value="${feedsInventoryInstance?.raiser?.id}" class="many-to-one"/>
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: feedsInventoryInstance, field: 'initialCapital', 'error')} required">
-	<label for="initialCapital">
-		<g:message code="feedsIventory.initialCapital.label" default="Initial Capital" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="initialCapital" name="initialCapital.id" from="${InitialCapital.list()}" optionKey="id" optionValue="dateStarted" required="" value="${feedsinventoryInstance?.initialCapital}" class="many-to-one"/>
-	
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: feedsInventoryInstance, field: 'medicineType', 'error')} required">
 	<label for="medicineType">
 		<g:message code="medicineInventory.feedsType.label" default="Feeds Type" />

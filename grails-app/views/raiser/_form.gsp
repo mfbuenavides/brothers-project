@@ -1,15 +1,10 @@
-
-
-
-
 <div class="fieldcontain ${hasErrors(bean: raiserInstance, field: 'firstName', 'error')} required">
 	<label for="firstName">
-		<g:message code="raiser.firstName.label" default="First Name" />
+		<g:message code="raiser.firstName.label" default="Last Name" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="firstName" required="" value="${raiserInstance?.firstName}"/>
 </div>
-
 <div class="fieldcontain ${hasErrors(bean: raiserInstance, field: 'lastName', 'error')} required">
 	<label for="lastName">
 		<g:message code="raiser.lastName.label" default="Last Name" />
