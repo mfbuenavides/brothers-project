@@ -42,9 +42,6 @@
       <g:layoutBody/>      
     </div>
     
-    
-     
-     
     <div class="large-3 pull-9 columns">
         
       <ul class="side-nav">
@@ -57,6 +54,7 @@
         <li><g:link controller="bankTransaction" action="list" >Bank Transactions</g:link></li>
         <li><g:link controller="cashFlow" action="list" >Cash Flow</g:link></li>
         <li><g:link controller="priceSetting" action="list" >Price Setting</g:link></li>
+        <li><g:link controller="reports" action="index" >Reports</g:link></li>
         <!-- <li><g:link controller="weighingScale" action="index">Weighing Scale</g:link></li> -->
       </ul>
       
@@ -73,7 +71,7 @@
       <hr/>
       <div class="row">
         <div class="large-6 columns">
-          <p>© Copyright no one at all. Go to town.</p>
+          <p>© Copyright</p>
         </div>       
       </div>
     </div> 

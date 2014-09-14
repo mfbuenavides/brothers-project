@@ -16,7 +16,7 @@ grails.mime.file.extensions = true // enables the parsing of file extensions fro
 grails.mime.use.accept.header = false
 grails.mime.types = [
     all:           '*/*',
-    atom:          'application/atom+xml',
+    atom:          'applicatio`n/atom+xml',
     css:           'text/css',
     csv:           'text/csv',
     form:          'application/x-www-form-urlencoded',
@@ -62,10 +62,12 @@ grails.hibernate.cache.queries = false
 environments {
     development {
         grails.logging.jul.usebridge = true
+        jasper.dir.reports = 'reports'
     }
     production {
         grails.logging.jul.usebridge = false
         // TODO: grails.serverURL = "http://www.changeme.com"
+        jasper.dir.reports = 'reports'
     }
 }
 

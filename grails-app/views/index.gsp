@@ -6,10 +6,6 @@
 		
 	</head>
 	<body>
-		<sec:ifNotLoggedIn>
-			<%
-			     response.sendRedirect("${request.contextPath}/login/auth")
-			%>
-		</sec:ifNotLoggedIn>
+	
 	</body>
 </html>
